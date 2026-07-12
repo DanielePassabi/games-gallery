@@ -1,0 +1,72 @@
+[
+  {
+    "id": "01",
+    "name": "High on Life",
+    "hours": 10,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "02",
+    "name": "The Witcher 3 Wild Hunt",
+    "hours": 135,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "03",
+    "name": "Resident Evil 4 Remake",
+    "hours": 21,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "04",
+    "name": "Monster Hunter Rise Sunbreak",
+    "hours": 25,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "05",
+    "name": "Undertale",
+    "hours": 8,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "06",
+    "name": "Nocturnal",
+    "hours": 3,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "07",
+    "name": "SIFU",
+    "hours": 16,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "08",
+    "name": "Don't Starve Together",
+    "hours": 7,
+    "status": "multiplayer",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "09",
+    "name": "Disco Elysium",
+    "hours": 37,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "10",
+    "name": "Starbound",
+    "hours": 7,
+    "status": "multiplayer",
+    "platform": "Desktop_PC"
+  }
+]

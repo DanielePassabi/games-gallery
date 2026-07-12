@@ -1,0 +1,170 @@
+[
+  {
+    "id": "01",
+    "name": "Katana Zero",
+    "hours": 5,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "02",
+    "name": "Nier Automata",
+    "hours": 33,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "03",
+    "name": "Call of Duty Modern Warfare",
+    "hours": 144,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "04",
+    "name": "Hollow Knight",
+    "hours": 24,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "05",
+    "name": "Ori and the Will of the Wisps",
+    "hours": 16,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "06",
+    "name": "Control Ultimate Edition",
+    "hours": 6,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "07",
+    "name": "AC Odissey",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "08",
+    "name": "Detroit Become Human",
+    "hours": 14,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "09",
+    "name": "Red Dead Redemption 2",
+    "hours": 75,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "10",
+    "name": "Celeste",
+    "hours": 7,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "11",
+    "name": "Crashlands",
+    "hours": 8,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "12",
+    "name": "Remnant From the Ashes",
+    "hours": 4,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "13",
+    "name": "Horizon Zero Dawn",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "14",
+    "name": "Metal Gear Solid 1",
+    "hours": 13,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "15",
+    "name": "Metal Gear Solid 2 Substance",
+    "hours": 12,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "16",
+    "name": "Resident Evil 3 Remake",
+    "hours": 6,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "17",
+    "name": "Metal Gear Solid 3 Snake Eater",
+    "hours": 15,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "18",
+    "name": "Death Stranding",
+    "hours": 44,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "19",
+    "name": "Metal Gear Solid 4 – Guns of the Patriots 25th Anniversary",
+    "hours": 18,
+    "status": "completed",
+    "platform": "PS3"
+  },
+  {
+    "id": "20",
+    "name": "MGS Peace Walker",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "21",
+    "name": "Metal Gear Solid V Ground Zeroes",
+    "hours": 4,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "22",
+    "name": "Jotun Valhalla Edition",
+    "hours": 2,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "23",
+    "name": "Battlefield V",
+    "hours": null,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "24",
+    "name": "Cyberpunk 2077",
+    "hours": 78,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  }
+]

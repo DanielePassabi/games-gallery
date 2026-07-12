@@ -1,0 +1,191 @@
+[
+  {
+    "id": "01",
+    "name": "Assassin's Creed Unity",
+    "hours": 36,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "02",
+    "name": "Far Cry Primal",
+    "hours": 17,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "03",
+    "name": "Assassin's Creed Syndicate",
+    "hours": 31,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "04",
+    "name": "Resident Evil VII – Biohazard",
+    "hours": 9,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "05",
+    "name": "Watch Dogs 2",
+    "hours": 26,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "06",
+    "name": "Battlefield I",
+    "hours": 10,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "07",
+    "name": "Just Cause 3",
+    "hours": 36,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "08",
+    "name": "Mass Effect",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "09",
+    "name": "Quantum Break",
+    "hours": 14,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "10",
+    "name": "Warframe",
+    "hours": 17,
+    "status": "multiplayer",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "11",
+    "name": "Mass Effect Andromeda",
+    "hours": 50,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "12",
+    "name": "Tekken 7",
+    "hours": 10,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "13",
+    "name": "Abzù",
+    "hours": 3,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "14",
+    "name": "Prey",
+    "hours": 4,
+    "status": "unfinished",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "15",
+    "name": "Ori and the Blind Forest",
+    "hours": 6,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "16",
+    "name": "Rime",
+    "hours": 7,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "17",
+    "name": "Terraria",
+    "hours": 31,
+    "status": "unfinished",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "18",
+    "name": "Hellblade Senua's Sacrifice",
+    "hours": 8,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "19",
+    "name": "Need for Speed Rivals",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "20",
+    "name": "Ghost Recon Wildlands",
+    "hours": 76,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "21",
+    "name": "Titanfall 2",
+    "hours": 8,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "22",
+    "name": "Cuphead",
+    "hours": null,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "23",
+    "name": "Middle Earth - Shadow of War",
+    "hours": 35,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "24",
+    "name": "Ryse - Son of Rome",
+    "hours": 8,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "25",
+    "name": "Wolfestain II - The New Colossus",
+    "hours": 11,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "26",
+    "name": "Nier Automata",
+    "hours": 2,
+    "status": "unfinished",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "27",
+    "name": "Night in the Woods",
+    "hours": 12,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  }
+]

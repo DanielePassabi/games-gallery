@@ -1,0 +1,170 @@
+[
+  {
+    "id": "01",
+    "name": "Shadow of the Tomb Raider",
+    "hours": 21,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "02",
+    "name": "God of War",
+    "hours": 8,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "03",
+    "name": "Unravel 2",
+    "hours": 9,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "04",
+    "name": "Apex Legends",
+    "hours": null,
+    "status": "multiplayer",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "05",
+    "name": "Monster Hunter World",
+    "hours": 42,
+    "status": "unfinished",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "06",
+    "name": "Sinner Sacrifice for Redemption",
+    "hours": 5,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "07",
+    "name": "The Wolf Among Us",
+    "hours": 11,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "08",
+    "name": "Sekiro Shadow Die Twice",
+    "hours": 41,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "09",
+    "name": "Resident Evil 2 Remake",
+    "hours": 12,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "10",
+    "name": "Devil May Cry 5",
+    "hours": 15,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "11",
+    "name": "Titan Souls",
+    "hours": 4,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "12",
+    "name": "Resident Evil 4 Ultimate HD Edition",
+    "hours": 20,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "13",
+    "name": "Journey",
+    "hours": 3,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "14",
+    "name": "Inside",
+    "hours": 4,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "15",
+    "name": "Control",
+    "hours": 20,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "16",
+    "name": "Darksiders III",
+    "hours": 3,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "17",
+    "name": "The Witcher 3 Wild Hunt",
+    "hours": 47,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "18",
+    "name": "God of War",
+    "hours": 30,
+    "status": "completed",
+    "platform": "PS4"
+  },
+  {
+    "id": "19",
+    "name": "Crash Bandicoot N-Sane Trilogy",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "20",
+    "name": "Doom",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "21",
+    "name": "Ace Combat 7",
+    "hours": 14,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "22",
+    "name": "Little Inferno",
+    "hours": 4,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "23",
+    "name": "Mosaic",
+    "hours": 3,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "24",
+    "name": "Arise – A simple story",
+    "hours": 4,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  }
+]

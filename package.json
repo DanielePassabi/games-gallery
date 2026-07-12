@@ -1,0 +1,24 @@
+{
+  "name": "mindmash-games-gallery",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test",
+    "validate": "node scripts/generate-catalog.mjs --check"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3",
+    "vite": "^6.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.8"
+  }
+}

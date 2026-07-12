@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Archivio personale dei videogiochi giocati negli anni." />
+    <title>Games Gallery</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>" />
+    <script type="module" src="/src/app.js"></script>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="page-width">
+        <a class="back-link" href="https://danielepassabi.github.io/MindMash/docs/tracking/Media/games-gallery">← MindMash</a>
+        <p class="eyebrow">Tracking / Media</p>
+        <h1>Games Gallery</h1>
+        <p class="hero-copy">I giochi che ho attraversato negli anni, con statistiche, piattaforme e screenshot.</p>
+      </div>
+    </header>
+
+    <main class="page-width">
+      <section aria-labelledby="summary-title">
+        <h2 id="summary-title" class="visually-hidden">Riepilogo</h2>
+        <div id="summary" class="summary-grid" aria-live="polite"></div>
+        <div class="charts-grid">
+          <article class="chart-panel"><canvas id="status-by-year-chart"></canvas></article>
+          <article class="chart-panel"><canvas id="days-by-year-chart"></canvas></article>
+          <article class="chart-panel"><canvas id="completion-chart"></canvas></article>
+          <article class="chart-panel"><canvas id="platform-chart"></canvas></article>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="Filtri della galleria">
+        <div class="filter-group" role="group" aria-label="Stato del gioco">
+          <button class="filter-button is-active" type="button" data-status="all">Tutti</button>
+          <button class="filter-button" type="button" data-status="completed">✓ Completati</button>
+          <button class="filter-button" type="button" data-status="unfinished">⏸ Non completati</button>
+          <button class="filter-button" type="button" data-status="multiplayer">🎮 Multiplayer</button>
+        </div>
+        <div class="toolbar-fields">
+          <label class="search-field">
+            <span class="visually-hidden">Cerca un gioco</span>
+            <input id="search" type="search" placeholder="Cerca per nome…" autocomplete="off" />
+          </label>
+          <div class="platform-field">
+            <span class="platform-label">Piattaforma</span>
+            <div class="platform-picker" id="platform-picker">
+              <button
+                class="platform-trigger"
+                id="platform-trigger"
+                type="button"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+              >
+                <span class="platform-trigger-icon" aria-hidden="true"></span>
+                <span class="platform-trigger-label">Tutte</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg>
+              </button>
+              <div class="platform-options" id="platform-options" role="listbox" aria-label="Piattaforma" hidden></div>
+            </div>
+          </div>
+          <label class="year-field">
+            <span>Anno</span>
+            <select id="year-filter"><option value="all">Tutti</option></select>
+          </label>
+          <button class="screenshots-filter" id="screenshots-filter" type="button" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="5" width="16" height="14" rx="2" />
+              <path d="m5 16 4-4 3 3 2-2 5 5" />
+              <circle cx="9" cy="9.5" r="1.5" />
+            </svg>
+            Con screenshot
+          </button>
+        </div>
+        <div class="toolbar-footer">
+          <p id="result-count" class="result-count" aria-live="polite"></p>
+          <div class="view-switch" role="group" aria-label="Visualizzazione del catalogo">
+            <button class="view-button is-active" type="button" data-view="grid" aria-pressed="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
+              Griglia
+            </button>
+            <button class="view-button" type="button" data-view="timeline" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 3v18M7 6h4M7 12h7M7 18h10" />
+                <circle cx="7" cy="6" r="2" />
+                <circle cx="7" cy="12" r="2" />
+                <circle cx="7" cy="18" r="2" />
+              </svg>
+              Timeline
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div id="error" class="message message-error" hidden></div>
+      <div id="loading" class="message">Caricamento catalogo…</div>
+      <section id="gallery" aria-label="Catalogo giochi"></section>
+    </main>
+
+    <dialog id="lightbox" class="lightbox" aria-label="Screenshot del gioco">
+      <button class="lightbox-close" type="button" aria-label="Chiudi">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+      <button class="lightbox-back" type="button">← Tutte le immagini</button>
+      <div class="lightbox-grid-controls" role="group" aria-label="Dimensione delle anteprime">
+        <span>Anteprime</span>
+        <button type="button" data-grid-size="small" aria-pressed="false">Piccole</button>
+        <button type="button" data-grid-size="medium" aria-pressed="true">Medie</button>
+        <button type="button" data-grid-size="large" aria-pressed="false">Grandi</button>
+      </div>
+      <span class="lightbox-counter" aria-live="polite"></span>
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="Immagine precedente">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+      </button>
+      <div class="lightbox-content"></div>
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="Immagine successiva">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+      </button>
+    </dialog>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+[
+  {
+    "id": "01",
+    "name": "Crash Bandicoot (PS1)",
+    "hours": 8,
+    "status": "completed",
+    "notes": "Completato al 100% 🚀",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "02",
+    "name": "Alan Wake 2 Night Springs",
+    "hours": 3,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "03",
+    "name": "Alan Wake 2 The Lake House",
+    "hours": 3,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "04",
+    "name": "Red Dead Redemption",
+    "hours": 9,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "05",
+    "name": "The Finals",
+    "hours": null,
+    "status": "multiplayer",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "06",
+    "name": "No Man's Sky",
+    "hours": 27,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "07",
+    "name": "Brawhlalla",
+    "hours": 18,
+    "status": "multiplayer",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "08",
+    "name": "Crash Bandicoot 2 – Cortex Strikes Back (PS1)",
+    "hours": 7,
+    "status": "completed",
+    "notes": "Completato al 100% 🚀",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "09",
+    "name": "Crash Bandicoot 3 – Warped (PS1)",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "10",
+    "name": "The Last of Us Part II",
+    "hours": 26,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "11",
+    "name": "Clair Obscur: Expedition 33",
+    "hours": 77,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "12",
+    "name": "One-Armed Robber",
+    "hours": 5,
+    "status": "multiplayer",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "13",
+    "name": "Hollow Knight: Silksong",
+    "hours": 19,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "14",
+    "name": "Battlefield 6",
+    "hours": 98,
+    "status": "multiplayer",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "15",
+    "name": "It Takes Two",
+    "hours": 2,
+    "status": "multiplayer",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "16",
+    "name": "Peak",
+    "hours": 3,
+    "status": "multiplayer",
+    "platform": "Desktop_PC"
+  }
+]

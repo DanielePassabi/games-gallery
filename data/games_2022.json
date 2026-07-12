@@ -1,0 +1,86 @@
+[
+  {
+    "id": "01",
+    "name": "God of War",
+    "hours": 37,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "02",
+    "name": "Hellblade Senua's Sacrifice",
+    "hours": 6,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "03",
+    "name": "A Plague Tale Innocence",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "04",
+    "name": "Elden Ring",
+    "hours": 90,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "05",
+    "name": "Terraria",
+    "hours": 60,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "06",
+    "name": "Metal Gear Solid V The Phantom Pain",
+    "hours": null,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "07",
+    "name": "Stray",
+    "hours": 6,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "08",
+    "name": "SpiderMan Remastered",
+    "hours": 6,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "09",
+    "name": "Cuphead The Delicious Last Course",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "10",
+    "name": "Cult of the Lamb",
+    "hours": 20,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "11",
+    "name": "Uncharted Legacy of Thieves Collection",
+    "hours": 23,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "12",
+    "name": "CoD Modern Warfare 2",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  }
+]

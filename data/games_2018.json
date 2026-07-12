@@ -1,0 +1,121 @@
+[
+  {
+    "id": "01",
+    "name": "Crash Bandicoot (PS1)",
+    "hours": 8,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "02",
+    "name": "Unravel",
+    "hours": 8,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "03",
+    "name": "Call of Duty World War II",
+    "hours": 9,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "04",
+    "name": "Crash Bandicoot 2 – Cortex Strikes Back (PS1)",
+    "hours": 8,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "05",
+    "name": "The Evil Within 2",
+    "hours": 17,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "06",
+    "name": "Assassin's Creed Origins",
+    "hours": 50,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "07",
+    "name": "Furi",
+    "hours": 7,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "08",
+    "name": "Crash Bandicoot 3 – Warped (PS1)",
+    "hours": 8,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "09",
+    "name": "Devil May Cry HD Collection",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "10",
+    "name": "Final Fantasy XV Windows Edition",
+    "hours": 39,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "11",
+    "name": "The Bonfire – Forsaken Lands",
+    "hours": null,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "12",
+    "name": "Far Cry 5",
+    "hours": 40,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "13",
+    "name": "Dark Souls Remastered",
+    "hours": 31,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "14",
+    "name": "Hollow Knight",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "15",
+    "name": "Dark Souls II",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "16",
+    "name": "Tomb Raider",
+    "hours": 16,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  },
+  {
+    "id": "17",
+    "name": "Shadow of the Tomb Raider",
+    "hours": 21,
+    "status": "completed",
+    "platform": "Laptop_PC"
+  }
+]

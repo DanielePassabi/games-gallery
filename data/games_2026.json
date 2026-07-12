@@ -1,0 +1,86 @@
+[
+  {
+    "id": "01",
+    "name": "Ark Raiders",
+    "hours": 4,
+    "status": "multiplayer",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "02",
+    "name": "God of War: Chains of Olympus",
+    "hours": 6,
+    "status": "completed",
+    "platform": "Steam_Deck"
+  },
+  {
+    "id": "03",
+    "name": "Dredge",
+    "hours": 12,
+    "status": "completed",
+    "platform": "Steam_Deck"
+  },
+  {
+    "id": "04",
+    "name": "Metal Gear Solid Δ: Snake Eater",
+    "hours": 12,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "05",
+    "name": "Plants Vs. Zombies: Replanted",
+    "hours": 10,
+    "status": "completed",
+    "platform": "Steam_Deck"
+  },
+  {
+    "id": "06",
+    "name": "Signalis",
+    "hours": 1,
+    "status": "unfinished",
+    "platform": "Steam_Deck"
+  },
+  {
+    "id": "07",
+    "name": "Sektori",
+    "hours": 10,
+    "status": "unfinished",
+    "platform": "Steam_Deck"
+  },
+  {
+    "id": "08",
+    "name": "The Legend of Zelda: Tears of the Kingdom",
+    "hours": 42,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "09",
+    "name": "Death Stranding 2",
+    "hours": 66,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "10",
+    "name": "Hades II",
+    "hours": 30,
+    "status": "unfinished",
+    "platform": "Steam_Deck"
+  },
+  {
+    "id": "11",
+    "name": "Resident Evil 9: Requiem",
+    "hours": 13,
+    "status": "completed",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "12",
+    "name": "Black Myth: Wukong",
+    "hours": 13,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  }
+]
