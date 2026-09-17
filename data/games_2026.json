@@ -82,5 +82,33 @@
     "hours": 39,
     "status": "completed",
     "platform": "Desktop_PC"
+  },
+  {
+    "id": "13",
+    "name": "Replaced",
+    "hours": 12,
+    "status": "completed",
+    "platform": "Steam_Deck"
+  },
+  {
+    "id": "14",
+    "name": "Split Fiction",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
+  },
+  {
+    "id": "15",
+    "name": "Moonlighter",
+    "hours": 1,
+    "status": "unfinished",
+    "platform": "Steam_Deck"
+  },
+  {
+    "id": "16",
+    "name": "Crash Tag Team Racing",
+    "hours": null,
+    "status": "completed",
+    "platform": "Steam_Deck"
   }
 ]
