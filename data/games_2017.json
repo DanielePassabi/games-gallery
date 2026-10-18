@@ -36,7 +36,7 @@
   },
   {
     "id": "06",
-    "name": "Battlefield I",
+    "name": "Battlefield 1",
     "hours": 10,
     "status": "completed",
     "platform": "Laptop_PC"
@@ -92,7 +92,7 @@
   },
   {
     "id": "14",
-    "name": "Prey",
+    "name": "Prey (2017)",
     "hours": 4,
     "status": "unfinished",
     "platform": "Laptop_PC"
@@ -169,7 +169,7 @@
   },
   {
     "id": "25",
-    "name": "Wolfestain II - The New Colossus",
+    "name": "Wolfenstein II: The New Colossus",
     "hours": 11,
     "status": "completed",
     "platform": "Laptop_PC"

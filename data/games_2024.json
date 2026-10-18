@@ -1,7 +1,7 @@
 [
   {
     "id": "01",
-    "name": "The Last Of Us Remastered",
+    "name": "The Last of Us Part I",
     "hours": 17,
     "status": "completed",
     "platform": "Desktop_PC"
@@ -29,7 +29,7 @@
   },
   {
     "id": "05",
-    "name": "Final Fantasy VII Crysis Core",
+    "name": "Crisis Core: Final Fantasy VII Reunion",
     "hours": 21,
     "status": "completed",
     "platform": "Desktop_PC"

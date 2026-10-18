@@ -1,7 +1,7 @@
 [
   {
     "id": "01",
-    "name": "Ark Raiders",
+    "name": "ARC Raiders",
     "hours": 4,
     "status": "multiplayer",
     "platform": "Desktop_PC"
@@ -71,7 +71,7 @@
   },
   {
     "id": "11",
-    "name": "Resident Evil 9: Requiem",
+    "name": "Resident Evil Requiem",
     "hours": 13,
     "status": "completed",
     "platform": "Desktop_PC"
@@ -110,5 +110,40 @@
     "hours": null,
     "status": "completed",
     "platform": "Steam_Deck"
+  },
+  {
+    "id": "17",
+    "name": "Terraria",
+    "hours": 20,
+    "status": "multiplayer",
+    "platform": "Steam_Deck"
+  },
+  {
+    "id": "18",
+    "name": "Metal Slug 1",
+    "hours": 2,
+    "status": "completed",
+    "platform": "Steam_Deck"
+  },
+  {
+    "id": "19",
+    "name": "Metal Slug 2",
+    "hours": 2,
+    "status": "completed",
+    "platform": "Steam_Deck"
+  },
+  {
+    "id": "20",
+    "name": "Metal Slug 3",
+    "hours": 2,
+    "status": "completed",
+    "platform": "Steam_Deck"
+  },
+  {
+    "id": "21",
+    "name": "No Rest for the Wicked",
+    "hours": 2,
+    "status": "unfinished",
+    "platform": "Desktop_PC"
   }
 ]

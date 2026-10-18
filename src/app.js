@@ -1,9 +1,10 @@
 import './styles.css';
 import { assetUrl, loadCatalog } from './catalog.js';
-import { createCharts } from './charts.js';
+import { createStatistics } from './statistics.js';
 import { createLightbox } from './lightbox.js';
+import { createFilterPanel } from './filter-panel.js';
 import { filterYears, summarize, summarizeYear } from './stats.js';
-import { parseFilterState, updateFilterUrl } from './url-state.js';
+import { parseFilterState, parseStatisticsState, updateFilterUrl } from './url-state.js';
 
 const statusLabels = {
   completed: 'Completato',
@@ -34,14 +35,18 @@ const elements = {
   screenshots: document.querySelector('#screenshots-filter'),
   search: document.querySelector('#search'),
   summary: document.querySelector('#summary'),
+  explore: document.querySelector('#explore-panel'),
+  statistics: document.querySelector('#statistics-panel'),
+  sectionButtons: document.querySelectorAll('[data-section]'),
   viewButtons: document.querySelectorAll('[data-view]'),
   year: document.querySelector('#year-filter'),
 };
-const charts = createCharts({
-  statusByYear: document.querySelector('#status-by-year-chart'),
-  daysByYear: document.querySelector('#days-by-year-chart'),
-  completion: document.querySelector('#completion-chart'),
-  platform: document.querySelector('#platform-chart'),
+const statistics = createStatistics(elements.statistics, {
+  onChange: (patch, options) => commitFilters(patch, options),
+  onGameSelect: (game) => commitFilters({
+    section: 'explore', query: game.name, year: 'all',
+    platform: 'all', status: 'all', screenshots: false,
+  }),
 });
 const lightbox = createLightbox(document.querySelector('#lightbox'));
 const state = {
@@ -52,7 +57,16 @@ const state = {
   status: 'all',
   view: 'grid',
   year: 'all',
+  section: 'explore',
+  statisticsTab: 'trend',
+  statisticsYears: null,
+  statisticsBins: 40,
 };
+let lastGalleryState;
+const filterPanel = createFilterPanel({
+  onReset: () => commitFilters({ platform: 'all', status: 'all', year: 'all', screenshots: false }),
+  onClose: () => closePlatformMenu(),
+});
 
 function element(tagName, className, text) {
   const node = document.createElement(tagName);
@@ -84,19 +98,19 @@ function createScreenshotIcon() {
 
 function renderSummary(years) {
   const stats = summarize(years);
-  const coverage = stats.games ? Math.round((stats.knownHoursGames / stats.games) * 100) : 0;
-  const cards = [
-    [stats.games, 'Giochi'],
-    [stats.completed, 'Completati'],
-    [`${stats.completionRate}%`, 'Tasso di completamento'],
-    [`${stats.days}g`, `${stats.hours} ore · ${stats.knownHoursGames}/${stats.games} giochi (${coverage}%)`],
+  const format = (value) => value.toLocaleString('it-IT', { useGrouping: 'always' });
+  const metrics = [
+    [format(stats.games), 'giochi registrati'],
+    [format(stats.completed), 'completati'],
+    [`${format(stats.hours)} h`, 'registrate'],
   ];
-
-  elements.summary.replaceChildren(...cards.map(([value, label]) => {
-    const card = element('article', 'summary-card');
-    card.append(element('strong', 'summary-value', value), element('span', 'summary-label', label));
-    return card;
+  elements.summary.replaceChildren(...metrics.map(([value, label]) => {
+    const metric = element('span', 'archive-summary-metric');
+    metric.append(element('strong', null, value), document.createTextNode(' '), element('span', 'archive-summary-label', label));
+    return metric;
   }));
+  const dates = years.map(({ year }) => Number(year));
+  if (dates.length) elements.summary.append(element('span', 'archive-summary-period', `${Math.min(...dates)}–${Math.max(...dates)}`));
 }
 
 function renderCard(game) {
@@ -197,7 +211,7 @@ function timelineYears(filteredYears) {
   return state.catalog.years
     .filter(({ year }) => state.year === 'all' || String(year) === String(state.year))
     .map(({ year }) => ({ year, games: filteredByYear.get(String(year)) ?? [] }))
-    .toReversed();
+    .reverse();
 }
 
 function renderTimeline(filteredYears) {
@@ -253,17 +267,28 @@ function renderTimeline(filteredYears) {
 }
 
 function render() {
+  if (!state.catalog) return;
+  elements.explore.hidden = state.section !== 'explore';
+  elements.statistics.hidden = state.section !== 'statistics';
+  renderSummary(state.catalog.years);
+  if (state.section === 'statistics') {
+    filterPanel.close();
+    statistics.render(state.catalog, state);
+    return;
+  }
+  const galleryState = JSON.stringify([state.query, state.status, state.platform, state.year, state.screenshots, state.view]);
+  if (galleryState === lastGalleryState) return;
+  lastGalleryState = galleryState;
   const filteredYears = filterYears(state.catalog.years, state);
   const filteredCount = filteredYears.reduce((total, { games }) => total + games.length, 0);
   const totalCount = summarize(state.catalog.years).games;
+  filterPanel.setResult(filteredCount);
   const isFiltered = state.status !== 'all'
     || state.platform !== 'all'
     || state.year !== 'all'
     || state.screenshots
     || state.query.trim();
 
-  renderSummary(filteredYears);
-  charts.render(filteredYears);
   elements.resultCount.textContent = isFiltered
     ? `${filteredCount} risultati su ${totalCount}`
     : `${totalCount} giochi in archivio`;
@@ -315,11 +340,17 @@ function availableChoices() {
 }
 
 function syncControls() {
+  filterPanel.sync(state, { status: statusLabels, platform: platformLabels });
+  elements.sectionButtons.forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.section === state.section));
+  });
   elements.search.value = state.query;
   elements.year.value = state.year;
   elements.screenshots.setAttribute('aria-pressed', String(state.screenshots));
   document.querySelectorAll('[data-status]').forEach((button) => {
-    button.classList.toggle('is-active', button.dataset.status === state.status);
+    const active = button.dataset.status === state.status;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-pressed', String(active));
   });
   elements.viewButtons.forEach((button) => {
     const selected = button.dataset.view === state.view;
@@ -377,13 +408,19 @@ elements.screenshots.addEventListener('click', () => commitFilters({ screenshots
 elements.viewButtons.forEach((button) => {
   button.addEventListener('click', () => commitFilters({ view: button.dataset.view }));
 });
+
+elements.sectionButtons.forEach((button) => {
+  button.addEventListener('click', () => commitFilters({ section: button.dataset.section }));
+});
 elements.platformTrigger.addEventListener('click', () => {
   if (elements.platformOptions.hidden) openPlatformMenu();
   else closePlatformMenu();
 });
 elements.platformPicker.addEventListener('keydown', (event) => {
   const options = [...elements.platformOptions.querySelectorAll('[role="option"]')];
-  if (event.key === 'Escape') {
+  if (event.key === 'Escape' && !elements.platformOptions.hidden) {
+    event.preventDefault();
+    event.stopPropagation();
     closePlatformMenu({ restoreFocus: true });
     return;
   }
@@ -400,6 +437,7 @@ document.addEventListener('click', (event) => {
 });
 window.addEventListener('popstate', () => {
   Object.assign(state, parseFilterState(window.location.search, availableChoices()));
+  Object.assign(state, parseStatisticsState(window.location.search, availableChoices()));
   syncControls();
   render();
 });
@@ -410,6 +448,7 @@ async function initialize() {
     populatePlatforms(state.catalog.years);
     populateYears(state.catalog.years);
     Object.assign(state, parseFilterState(window.location.search, availableChoices()));
+    Object.assign(state, parseStatisticsState(window.location.search, availableChoices()));
     syncControls();
     updateFilterUrl(state, { replace: true });
     elements.loading.hidden = true;

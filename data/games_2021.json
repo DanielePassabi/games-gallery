@@ -29,7 +29,7 @@
   },
   {
     "id": "05",
-    "name": "Crash Bandicoot It's about time",
+    "name": "Crash Bandicoot 4: It's About Time",
     "hours": 23,
     "status": "completed",
     "platform": "Desktop_PC"
@@ -50,7 +50,7 @@
   },
   {
     "id": "08",
-    "name": "Nier Replicant",
+    "name": "NieR Replicant ver.1.22474487139...",
     "hours": null,
     "status": "unfinished",
     "platform": "Desktop_PC"
@@ -113,7 +113,7 @@
   },
   {
     "id": "17",
-    "name": "Final Fantasy VII Remake Integrade",
+    "name": "Final Fantasy VII Remake Intergrade",
     "hours": 42,
     "status": "completed",
     "platform": "Desktop_PC"

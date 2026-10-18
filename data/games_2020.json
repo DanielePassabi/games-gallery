@@ -15,7 +15,7 @@
   },
   {
     "id": "03",
-    "name": "Call of Duty Modern Warfare",
+    "name": "Call of Duty: Modern Warfare (2019)",
     "hours": 144,
     "status": "completed",
     "platform": "Desktop_PC"
@@ -43,7 +43,7 @@
   },
   {
     "id": "07",
-    "name": "AC Odissey",
+    "name": "Assassin's Creed Odyssey",
     "hours": null,
     "status": "unfinished",
     "platform": "Desktop_PC"

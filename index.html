@@ -2,7 +2,7 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Archivio personale dei videogiochi giocati negli anni." />
     <title>Games Gallery</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>" />
@@ -21,17 +21,20 @@
     <main class="page-width">
       <section aria-labelledby="summary-title">
         <h2 id="summary-title" class="visually-hidden">Riepilogo</h2>
-        <div id="summary" class="summary-grid" aria-live="polite"></div>
-        <div class="charts-grid">
-          <article class="chart-panel"><canvas id="status-by-year-chart"></canvas></article>
-          <article class="chart-panel"><canvas id="days-by-year-chart"></canvas></article>
-          <article class="chart-panel"><canvas id="completion-chart"></canvas></article>
-          <article class="chart-panel"><canvas id="platform-chart"></canvas></article>
-        </div>
+        <div id="summary" class="archive-summary" aria-live="polite"></div>
       </section>
 
+      <nav class="section-navigation" aria-label="Sezioni della galleria">
+        <button id="explore-section-button" type="button" data-section="explore" aria-pressed="true">Esplora</button>
+        <button id="statistics-section-button" type="button" data-section="statistics" aria-pressed="false">Statistiche</button>
+      </nav>
+      <div id="error" class="message message-error" hidden></div>
+      <div id="loading" class="message">Caricamento catalogo…</div>
+
+      <section id="explore-panel" aria-labelledby="explore-section-button">
       <section class="toolbar" aria-label="Filtri della galleria">
         <div class="filter-group" role="group" aria-label="Stato del gioco">
+          <span class="mobile-filter-label">Stato</span>
           <button class="filter-button is-active" type="button" data-status="all">Tutti</button>
           <button class="filter-button" type="button" data-status="completed">✓ Completati</button>
           <button class="filter-button" type="button" data-status="unfinished">⏸ Non completati</button>
@@ -42,8 +45,12 @@
             <span class="visually-hidden">Cerca un gioco</span>
             <input id="search" type="search" placeholder="Cerca per nome…" autocomplete="off" />
           </label>
+          <button id="mobile-filter-toggle" class="mobile-filter-toggle" type="button" aria-haspopup="dialog" aria-controls="filter-dialog" aria-expanded="false" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M8 4v6M16 14v6" /></svg>
+            Filtri <span id="mobile-filter-count" hidden></span>
+          </button>
           <div class="platform-field">
-            <span class="platform-label">Piattaforma</span>
+            <span class="platform-label" id="platform-label">Piattaforma</span>
             <div class="platform-picker" id="platform-picker">
               <button
                 class="platform-trigger"
@@ -51,9 +58,11 @@
                 type="button"
                 aria-haspopup="listbox"
                 aria-expanded="false"
+                aria-controls="platform-options"
+                aria-labelledby="platform-label platform-trigger-label"
               >
                 <span class="platform-trigger-icon" aria-hidden="true"></span>
-                <span class="platform-trigger-label">Tutte</span>
+                <span class="platform-trigger-label" id="platform-trigger-label">Tutte</span>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg>
               </button>
               <div class="platform-options" id="platform-options" role="listbox" aria-label="Piattaforma" hidden></div>
@@ -73,7 +82,7 @@
           </button>
         </div>
         <div class="toolbar-footer">
-          <p id="result-count" class="result-count" aria-live="polite"></p>
+          <div class="toolbar-result"><p id="result-count" class="result-count" aria-live="polite"></p><p id="active-filter-summary" class="active-filter-summary" hidden></p></div>
           <div class="view-switch" role="group" aria-label="Visualizzazione del catalogo">
             <button class="view-button is-active" type="button" data-view="grid" aria-pressed="true">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -97,12 +106,82 @@
         </div>
       </section>
 
-      <div id="error" class="message message-error" hidden></div>
-      <div id="loading" class="message">Caricamento catalogo…</div>
       <section id="gallery" aria-label="Catalogo giochi"></section>
+      </section>
+
+      <section id="statistics-panel" class="statistics" aria-labelledby="statistics-section-button" hidden>
+        <header class="statistics-heading">
+          <h2>Le tue statistiche</h2>
+          <p id="statistics-scope" aria-live="polite"></p>
+        </header>
+        <details id="statistics-period" class="statistics-period" open>
+          <summary><span id="statistics-period-label">Periodo</span><strong id="statistics-period-summary">Intero archivio</strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg></summary>
+          <div id="statistics-years" class="statistics-years" role="group" aria-labelledby="statistics-period-label"></div>
+        </details>
+        <nav class="statistics-navigation" aria-label="Categorie delle statistiche">
+          <button type="button" data-statistics-tab="trend" aria-pressed="true">Andamento</button>
+          <button type="button" data-statistics-tab="habits" aria-pressed="false">Abitudini</button>
+          <button type="button" data-statistics-tab="platforms" aria-pressed="false">Piattaforme</button>
+        </nav>
+        <p id="statistics-empty" class="message" hidden>Seleziona almeno un anno.</p>
+
+        <div data-statistics-panel="trend">
+          <article class="statistics-card">
+            <h3>Giochi negli anni</h3>
+            <div class="statistics-chart-scroll" tabindex="0" role="region" aria-label="Grafico giochi per anno"><div class="statistics-chart"><canvas id="status-by-year-chart" role="img" aria-label="Giochi per anno e stato"></canvas></div></div>
+          </article>
+          <div class="statistics-pair">
+            <article class="statistics-card">
+              <h3>Ore registrate per anno</h3>
+              <div class="statistics-chart-scroll" tabindex="0" role="region" aria-label="Grafico ore per anno"><div class="statistics-chart"><canvas id="hours-by-year-chart" role="img" aria-label="Ore registrate per anno"></canvas></div></div>
+              <p id="statistics-hours-coverage" class="statistics-caption"></p>
+            </article>
+            <article class="statistics-card">
+              <h3>Completamento</h3>
+              <div id="statistics-completion"></div>
+            </article>
+          </div>
+        </div>
+
+        <div data-statistics-panel="habits" hidden>
+          <article class="statistics-card">
+            <div class="statistics-card-heading"><h3>Distribuzione delle ore</h3><p id="statistics-duration-summary"></p></div>
+            <div class="statistics-granularity">
+              <label for="statistics-histogram-bins">Intervalli <output id="statistics-histogram-count" for="statistics-histogram-bins">40</output></label>
+              <input id="statistics-histogram-bins" type="range" min="10" max="150" step="1" value="40" aria-label="Numero di intervalli dell’istogramma" />
+            </div>
+            <div class="statistics-chart statistics-histogram"><canvas id="hours-distribution-chart" role="img" aria-label="Istogramma delle ore dedicate ai giochi"></canvas></div>
+            <p id="statistics-duration-coverage" class="statistics-caption"></p>
+          </article>
+          <article class="statistics-card">
+            <h3>I giochi con più ore</h3>
+            <ol id="statistics-ranking" class="statistics-ranking"></ol>
+            <div class="statistics-ranking-footer"><button id="statistics-ranking-expand" type="button" aria-expanded="false" aria-controls="statistics-ranking">Mostra i primi 50</button></div>
+          </article>
+        </div>
+
+        <div data-statistics-panel="platforms" hidden>
+          <article class="statistics-card">
+            <h3>Come cambiano le piattaforme</h3>
+            <div class="statistics-chart-scroll statistics-platform-chart" tabindex="0" role="region" aria-label="Grafico piattaforme per anno"><div class="statistics-chart"><canvas id="platforms-by-year-chart" role="img" aria-label="Quota dei giochi per piattaforma e anno"></canvas></div></div>
+          </article>
+          <article class="statistics-card">
+            <h3>Le tue piattaforme</h3>
+            <div id="statistics-treemap" class="statistics-treemap" role="img" aria-label="Treemap dei giochi per piattaforma"></div>
+            <ul id="statistics-platform-legend" class="statistics-platform-legend" aria-label="Giochi per piattaforma"></ul>
+          </article>
+        </div>
+      </section>
     </main>
 
+    <dialog id="filter-dialog" class="filter-dialog" aria-labelledby="filter-dialog-title">
+      <header class="filter-dialog-header"><h2 id="filter-dialog-title">Filtri</h2><button id="filter-dialog-close" class="filter-dialog-close" type="button" aria-label="Chiudi filtri"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></button></header>
+      <div id="filter-dialog-body" class="filter-dialog-body"></div>
+      <footer class="filter-dialog-footer"><button id="filter-dialog-reset" type="button">Azzera</button><button id="filter-dialog-apply" type="button">Mostra i giochi</button></footer>
+    </dialog>
+
     <dialog id="lightbox" class="lightbox" aria-label="Screenshot del gioco">
+      <div class="lightbox-header">
       <button class="lightbox-close" type="button" aria-label="Chiudi">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
       </button>
@@ -114,6 +193,7 @@
         <button type="button" data-grid-size="large" aria-pressed="false">Grandi</button>
       </div>
       <span class="lightbox-counter" aria-live="polite"></span>
+      </div>
       <button class="lightbox-nav lightbox-prev" type="button" aria-label="Immagine precedente">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
       </button>

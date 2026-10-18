@@ -50,7 +50,7 @@
   },
   {
     "id": "08",
-    "name": "Geometry Wars 3Dimension",
+    "name": "Geometry Wars 3: Dimensions",
     "hours": null,
     "status": "unfinished",
     "platform": "Laptop_PC"
@@ -120,14 +120,14 @@
   },
   {
     "id": "18",
-    "name": "Call of Duty MW Remastered",
+    "name": "Call of Duty: Modern Warfare Remastered",
     "hours": 8,
     "status": "completed",
     "platform": "Laptop_PC"
   },
   {
     "id": "19",
-    "name": "Wolfestain The New Order",
+    "name": "Wolfenstein: The New Order",
     "hours": 15,
     "status": "completed",
     "platform": "Laptop_PC"
@@ -141,14 +141,14 @@
   },
   {
     "id": "21",
-    "name": "Call of Duty MW 2",
+    "name": "Call of Duty: Modern Warfare 2 (2009)",
     "hours": 6,
     "status": "completed",
     "platform": "Laptop_PC"
   },
   {
     "id": "22",
-    "name": "Call of Duty MW 3",
+    "name": "Call of Duty: Modern Warfare 3 (2011)",
     "hours": 6,
     "status": "completed",
     "platform": "Laptop_PC"

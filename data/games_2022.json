@@ -1,7 +1,7 @@
 [
   {
     "id": "01",
-    "name": "God of War",
+    "name": "God of War (2018)",
     "hours": 37,
     "status": "completed",
     "platform": "Desktop_PC"
@@ -37,7 +37,7 @@
   {
     "id": "06",
     "name": "Metal Gear Solid V The Phantom Pain",
-    "hours": null,
+    "hours": 66,
     "status": "completed",
     "platform": "Desktop_PC"
   },
@@ -78,7 +78,7 @@
   },
   {
     "id": "12",
-    "name": "CoD Modern Warfare 2",
+    "name": "Call of Duty: Modern Warfare II (2022)",
     "hours": null,
     "status": "unfinished",
     "platform": "Desktop_PC"

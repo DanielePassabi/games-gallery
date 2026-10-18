@@ -20,6 +20,7 @@ export function createLightbox(dialog) {
   let gridScrollPosition = 0;
   let gridSize = 'medium';
   let viewMode = 'grid';
+  let swipeStart = null;
 
   function wrappedIndex(index) {
     return (index + images.length) % images.length;
@@ -72,6 +73,19 @@ export function createLightbox(dialog) {
     result.className = 'lightbox-viewer';
     viewerImage = document.createElement('img');
     viewerImage.className = 'lightbox-image';
+    viewerImage.addEventListener('pointerdown', (event) => {
+      swipeStart = event.isPrimary && event.pointerType !== 'mouse'
+        ? { id: event.pointerId, x: event.clientX, y: event.clientY } : null;
+    });
+    viewerImage.addEventListener('pointercancel', () => { swipeStart = null; });
+    viewerImage.addEventListener('pointerup', (event) => {
+      const start = swipeStart;
+      swipeStart = null;
+      if (!start || event.pointerId !== start.id || images.length < 2) return;
+      const dx = event.clientX - start.x;
+      const dy = event.clientY - start.y;
+      if (Math.abs(dx) >= 48 && Math.abs(dx) > Math.abs(dy) * 1.4) navigate(dx < 0 ? 1 : -1);
+    });
     filmstrip = document.createElement('div');
     filmstrip.className = 'lightbox-filmstrip';
     filmstrip.setAttribute('aria-label', 'Seleziona uno screenshot');
