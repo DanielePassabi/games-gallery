@@ -117,3 +117,8 @@ test('platform distribution respects the requested order and keeps every entry',
   assert.equal(distribution.reduce((sum, { count }) => sum + count, 0), games.length);
   assert.equal(distribution.find(({ key }) => key === 'Desktop_PC').count, 2);
 });
+
+test('the undated early period precedes the dated years in mixed selections', () => {
+  const years = [2019, 'early', 2020].map((year) => ({ year, games: [] }));
+  assert.deepEqual(selectStatisticsYears(years).map(({ year }) => year), ['early', 2019, 2020]);
+});

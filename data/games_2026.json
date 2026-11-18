@@ -53,14 +53,28 @@
     "name": "The Legend of Zelda: Tears of the Kingdom",
     "hours": 42,
     "status": "unfinished",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "Ljjp0rxtB_Q",
+        "title": "Zelda TOTK - Ghoma Roccioso"
+      }
+    ]
   },
   {
     "id": "09",
     "name": "Death Stranding 2",
     "hours": 66,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "wiP5x2205jg",
+        "title": "Death Stranding 2 - The Mysterious Man"
+      }
+    ]
   },
   {
     "id": "10",
@@ -81,7 +95,19 @@
     "name": "Black Myth: Wukong",
     "hours": 39,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "WuZNpEryV48",
+        "title": "Black Myth Wukong - Guardiano di Pietra"
+      },
+      {
+        "provider": "youtube",
+        "id": "Zkj9LLTzmBs",
+        "title": "Black Myth Wukong - Sabbia!"
+      }
+    ]
   },
   {
     "id": "13",
@@ -149,8 +175,25 @@
   {
     "id": "22",
     "name": "PRAGMATA",
-    "hours": 10,
-    "status": "unfinished",
-    "platform": "Desktop_PC"
+    "hours": 15,
+    "status": "completed",
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "wTxTnhp3uck",
+        "title": "PRAGMATA - 01 - Lunite andata a male"
+      },
+      {
+        "provider": "youtube",
+        "id": "Wx-6PPB0fo0",
+        "title": "PRAGMATA - 02 - Finale"
+      },
+      {
+        "provider": "youtube",
+        "id": "gQqWMnq-pbk",
+        "title": "PRAGMATA - 03 - Finale"
+      }
+    ]
   }
 ]

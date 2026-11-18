@@ -1,3 +1,4 @@
+import { periodLabel } from './periods.js';
 import { hierarchy, treemap } from 'd3-hierarchy';
 import { createCharts } from './charts.js';
 import { assetUrl } from './catalog.js';
@@ -8,7 +9,7 @@ import {
 } from './statistics-data.js';
 
 const format = (value) => value.toLocaleString('it-IT', { maximumFractionDigits: 1, useGrouping: 'always' });
-const statusLabels = { completed: 'Completati', unfinished: 'Non completati', multiplayer: 'Multiplayer' };
+const statusLabels = { completed: 'Completati', unfinished: 'Non completati', multiplayer: 'Multiplayer', unknown: 'Stato N/D' };
 
 function node(tag, className, text) {
   const item = document.createElement(tag);
@@ -61,7 +62,7 @@ export function createStatistics(root, { onChange, onGameSelect }) {
     all.type = 'button';
     all.dataset.statisticsYear = 'all';
     const buttons = selectStatisticsYears(catalog.years).map(({ year }) => {
-      const button = node('button', null, year);
+      const button = node('button', null, periodLabel(year));
       button.type = 'button';
       button.dataset.statisticsYear = String(year);
       return button;
@@ -91,11 +92,11 @@ export function createStatistics(root, { onChange, onGameSelect }) {
 
   function renderCompletion(games, stats) {
     const multiplayer = games.filter(({ status }) => status === 'multiplayer').length;
-    const eligible = games.length - multiplayer;
+    const eligible = stats.knownStatusGames - multiplayer;
     const netRate = eligible ? `${Math.round(stats.completed / eligible * 100)}%` : 'N/D';
     const rate = node('p', 'statistics-completion-rate');
-    rate.append(node('strong', null, `${stats.completionRate}%`), node('span', null, 'complessivo'));
-    const subtitle = node('p', 'statistics-caption', `${stats.completed}/${stats.games} registrazioni · ${netRate} esclusi Multiplayer`);
+    rate.append(node('strong', null, stats.completionRate === null ? 'N/D' : `${stats.completionRate}%`), node('span', null, 'complessivo'));
+    const subtitle = node('p', 'statistics-caption', `${stats.completed}/${stats.knownStatusGames} con stato noto · ${netRate} esclusi Multiplayer`);
     const rows = Object.keys(statusLabels).map((key) => {
       const count = games.filter(({ status }) => status === key).length;
       const row = node('div', 'statistics-measure');
@@ -140,7 +141,7 @@ export function createStatistics(root, { onChange, onGameSelect }) {
       game.experiences.filter(({ hours }) => Number.isFinite(hours) && hours > 0).forEach((experience) => {
         const segment = node('span', 'statistics-rank-segment');
         segment.style.width = `${experience.hours / game.hours * 100}%`;
-        segment.title = `${experience.year} · ${format(experience.hours)} h`;
+        segment.title = `${periodLabel(experience.year)} · ${format(experience.hours)} h`;
         fill.append(segment);
       });
       track.append(fill);
@@ -213,8 +214,8 @@ export function createStatistics(root, { onChange, onGameSelect }) {
       const stats = summarize(selectedYears);
       const isAll = state.statisticsYears === null || selectedYears.length === catalog.years.length;
       elements.periodSummary.textContent = isAll ? 'Intero archivio' : selectedYears.length > 3
-        ? `${selectedYears.length} anni selezionati` : selectedYears.map(({ year }) => year).join(', ') || 'Nessun anno';
-      elements.scope.textContent = `${isAll ? 'Intero archivio' : selectedYears.map(({ year }) => year).join(', ') || 'Nessun anno'} · ${stats.games} registrazioni · ${format(stats.hours)} h`;
+        ? `${selectedYears.length} periodi selezionati` : selectedYears.map(({ year }) => periodLabel(year)).join(', ') || 'Nessun anno';
+      elements.scope.textContent = `${isAll ? 'Intero archivio' : selectedYears.map(({ year }) => periodLabel(year)).join(', ') || 'Nessun anno'} · ${stats.games} registrazioni · ${stats.knownHoursGames ? format(stats.hours) + ' h' : 'Ore N/D'}`;
       root.querySelectorAll('[data-statistics-year]').forEach((button) => {
         button.setAttribute('aria-pressed', String(button.dataset.statisticsYear === 'all'
           ? state.statisticsYears === null : state.statisticsYears?.includes(button.dataset.statisticsYear) ?? false));

@@ -54,7 +54,7 @@ test('histogram granularity survives URL round trips and rejects invalid values'
 
 test('discards invalid enum values from the URL', () => {
   assert.deepEqual(
-    parseFilterState('?status=unknown&platform=GameBoy&year=1990&view=map', choices),
+    parseFilterState('?status=invalid&platform=GameBoy&year=1990&view=map', choices),
     { query: '', status: 'all', platform: 'all', year: 'all', screenshots: false, view: 'grid' },
   );
 });

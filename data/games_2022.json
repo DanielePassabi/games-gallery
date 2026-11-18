@@ -4,14 +4,98 @@
     "name": "God of War (2018)",
     "hours": 37,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "lHbsBjOvUes",
+        "title": "God of War - Final Boss and Ending"
+      },
+      {
+        "provider": "youtube",
+        "id": "lqqBD73N7f8",
+        "title": "God of War - Valkyrie Sigrun [Hard Mode]"
+      },
+      {
+        "provider": "youtube",
+        "id": "7jZOfA1JWtw",
+        "title": "God of War - This is beautiful"
+      },
+      {
+        "provider": "youtube",
+        "id": "GdbOXnI7M38",
+        "title": "God of War - Valkyrie Gondul [Hard Mode]"
+      },
+      {
+        "provider": "youtube",
+        "id": "8RrMMZ_HKZM",
+        "title": "God of War - Valkyrie Gunnr [Hard Mode]"
+      },
+      {
+        "provider": "youtube",
+        "id": "w6jt-6vtFlY",
+        "title": "God of War - Start some trouble"
+      },
+      {
+        "provider": "youtube",
+        "id": "6VMvYTGL3NM",
+        "title": "God of War - A forgotten past"
+      },
+      {
+        "provider": "youtube",
+        "id": "WuoTkOxde7g",
+        "title": "God of War - Magni and Modi"
+      },
+      {
+        "provider": "youtube",
+        "id": "1a0RTDKn-jM",
+        "title": "God of War - I Hate You Dark Elves Trial [Hard Mode]"
+      },
+      {
+        "provider": "youtube",
+        "id": "s8rMUa8qspE",
+        "title": "God of War - The King of Dark Elves"
+      },
+      {
+        "provider": "youtube",
+        "id": "3hoW_QgFkiY",
+        "title": "God of War - No monkeys allowed"
+      },
+      {
+        "provider": "youtube",
+        "id": "1OvTtdtpQyE",
+        "title": "God of War - The World Giant"
+      },
+      {
+        "provider": "youtube",
+        "id": "OEjP_cTgj_Y",
+        "title": "God of War - First Encounter with Freia"
+      }
+    ]
   },
   {
     "id": "02",
     "name": "Hellblade Senua's Sacrifice",
     "hours": 6,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "NAx4uNk48-8",
+        "title": "Hellblade Senua's Sacrifice Enhanced - This is too easy"
+      },
+      {
+        "provider": "youtube",
+        "id": "WKBY55jm2Qg",
+        "title": "Hellblade Senua's Sacrifice Enhanced - Valravn Boss"
+      },
+      {
+        "provider": "youtube",
+        "id": "4t81l0AYhq4",
+        "title": "Hellblade Senua's Sacrifice Enhanced - Surt Boss"
+      }
+    ]
   },
   {
     "id": "03",
@@ -25,7 +109,29 @@
     "name": "Elden Ring",
     "hours": 90,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "0XlHuDmHeAE",
+        "title": "Elden Ring - Lacrima Riflessa"
+      },
+      {
+        "provider": "youtube",
+        "id": "hKe-Ye-KD48",
+        "title": "Elden Ring - Radahn"
+      },
+      {
+        "provider": "youtube",
+        "id": "boewe_nv1gY",
+        "title": "Elden Ring - Rennala"
+      },
+      {
+        "provider": "youtube",
+        "id": "K1EgM11Q2T8",
+        "title": "Elden Ring - Cavaliere cariano Bols"
+      }
+    ]
   },
   {
     "id": "05",

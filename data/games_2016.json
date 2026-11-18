@@ -4,7 +4,14 @@
     "name": "Superhot",
     "hours": 4,
     "status": "completed",
-    "platform": "Laptop_PC"
+    "platform": "Laptop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "8VFh6__1rSA",
+        "title": "SUPERHOT - PC Gameplay Best Graphics (2)"
+      }
+    ]
   },
   {
     "id": "02",
@@ -88,7 +95,14 @@
     "name": "Rise of the Tomb Raider",
     "hours": 21,
     "status": "completed",
-    "platform": "Laptop_PC"
+    "platform": "Laptop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "5KAtBL8wEIQ",
+        "title": "The Rise of Tomb Rider - 3 Funny Bugs"
+      }
+    ]
   },
   {
     "id": "14",

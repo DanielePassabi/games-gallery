@@ -1,3 +1,4 @@
+import { periodLabel } from './periods.js';
 export const compactViewportQuery = '(max-width: 900px), (max-width: 1100px) and (max-height: 500px)';
 
 // Move the existing controls rather than duplicating filters or their state.
@@ -58,7 +59,7 @@ export function createFilterPanel({ onReset, onClose }) {
       const active = [
         state.status !== 'all' ? labels.status[state.status] : null,
         state.platform !== 'all' ? labels.platform[state.platform] ?? state.platform.replaceAll('_', ' ') : null,
-        state.year !== 'all' ? state.year : null,
+        state.year !== 'all' ? periodLabel(state.year) : null,
         state.screenshots ? 'Con screenshot' : null,
       ].filter(Boolean);
       badge.hidden = active.length === 0;

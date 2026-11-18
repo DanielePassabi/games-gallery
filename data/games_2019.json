@@ -74,7 +74,14 @@
     "name": "Titan Souls",
     "hours": 4,
     "status": "completed",
-    "platform": "Laptop_PC"
+    "platform": "Laptop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "yeQe2LXmBwk",
+        "title": "Titan Souls - Truth Boss"
+      }
+    ]
   },
   {
     "id": "12",
@@ -88,7 +95,14 @@
     "name": "Journey",
     "hours": 3,
     "status": "completed",
-    "platform": "Laptop_PC"
+    "platform": "Laptop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "nHH0DhT9L-g",
+        "title": "Journey - The End"
+      }
+    ]
   },
   {
     "id": "14",
@@ -102,7 +116,19 @@
     "name": "Control",
     "hours": 20,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "ZK76YheLC4I",
+        "title": "Control - A sus cat"
+      },
+      {
+        "provider": "youtube",
+        "id": "2lZH8m8LI7Y",
+        "title": "Control - A red bossfight"
+      }
+    ]
   },
   {
     "id": "16",
@@ -116,7 +142,19 @@
     "name": "The Witcher 3 Wild Hunt",
     "hours": 47,
     "status": "unfinished",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "iPRk3EDEREI",
+        "title": "The Witcher 3 - What a sunset, but with blood"
+      },
+      {
+        "provider": "youtube",
+        "id": "ecKLNxpFgrc",
+        "title": "The Witcher 3 - What a sunset"
+      }
+    ]
   },
   {
     "id": "18",
@@ -130,7 +168,19 @@
     "name": "Crash Bandicoot N-Sane Trilogy",
     "hours": null,
     "status": "unfinished",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "fkHYDmpzR-Q",
+        "title": "Crash Bandicoot™ N  Sane Trilogy - Chiave di Cortex 2"
+      },
+      {
+        "provider": "youtube",
+        "id": "6C5aIMEEOs4",
+        "title": "Crash Bandicoot™ N  Sane Trilogy - Chiave di Cortex 1"
+      }
+    ]
   },
   {
     "id": "20",

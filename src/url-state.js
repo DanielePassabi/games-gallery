@@ -1,4 +1,4 @@
-const validStatuses = new Set(['all', 'completed', 'unfinished', 'multiplayer']);
+const validStatuses = new Set(['all', 'completed', 'unfinished', 'multiplayer', 'unknown']);
 const validViews = new Set(['grid', 'timeline']);
 const validStatisticsTabs = new Set(['trend', 'habits', 'platforms']);
 

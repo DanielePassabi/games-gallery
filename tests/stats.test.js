@@ -49,6 +49,7 @@ test('summaries ignore unknown hours and calculate completion rate', () => {
   assert.deepEqual(summarize(years), {
     games: 4,
     completed: 2,
+    knownStatusGames: 4,
     completionRate: 50,
     knownHoursGames: 3,
     hours: 17.5,
@@ -59,6 +60,14 @@ test('summaries ignore unknown hours and calculate completion rate', () => {
     completed: 1,
     unfinished: 1,
     multiplayer: 1,
+    unknown: 0,
     hours: 15.5,
   });
+});
+
+test('a playthrough with no recorded outcome or duration contributes neither a rate nor hours', () => {
+  const early = [{ year: 'early', games: [{ name: 'Terraria', status: 'unknown', hours: null }] }];
+  assert.equal(summarize(early).completionRate, null);
+  assert.equal(summarizeYear(early[0].games).hours, null);
+  assert.equal(summarize([...early, ...years]).completionRate, 50);
 });

@@ -25,7 +25,14 @@
     "name": "Hollow Knight",
     "hours": 24,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "F-gFuQJyOwA",
+        "title": "Hollow Knight - Final Boss (almost)"
+      }
+    ]
   },
   {
     "id": "05",
@@ -46,7 +53,19 @@
     "name": "Assassin's Creed Odyssey",
     "hours": null,
     "status": "unfinished",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "YLlmgr-JXTk",
+        "title": "Assassin's Creed Odyssey - Sincronizzazione"
+      },
+      {
+        "provider": "youtube",
+        "id": "eYxhQ0yJ80s",
+        "title": "Assassin's Creed Odyssey - Look at that graphic!"
+      }
+    ]
   },
   {
     "id": "08",
@@ -158,13 +177,72 @@
     "name": "Battlefield V",
     "hours": null,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "MFoJO73OpBk",
+        "title": "Battlefield V - 5 minutes in 2020"
+      }
+    ]
   },
   {
     "id": "24",
     "name": "Cyberpunk 2077",
     "hours": 78,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "V-pbsr7guZw",
+        "title": "Cyberpunk 2077 - The impossible jump"
+      },
+      {
+        "provider": "youtube",
+        "id": "sjpWRp80UtI",
+        "title": "Cyberpunk 2077 - Sniper collateral could have gone better"
+      },
+      {
+        "provider": "youtube",
+        "id": "45OVZa41WjM",
+        "title": "Cyberpunk 2077 - Driving Skills, but on a good car"
+      },
+      {
+        "provider": "youtube",
+        "id": "_-1i9GYQetI",
+        "title": "Cyberpunk 2077 - Driving Skills, but on an ugly motocycle"
+      },
+      {
+        "provider": "youtube",
+        "id": "PwHVpQVB5aY",
+        "title": "Cyberpunk 2077 - Driving Skills"
+      },
+      {
+        "provider": "youtube",
+        "id": "ZjLIgLcvwhE",
+        "title": "Cyberpunk 2077 - Death Stranding Easter Egg"
+      },
+      {
+        "provider": "youtube",
+        "id": "-Ac5pgH4bNw",
+        "title": "Cyberpunk 2077 - Best door in the game"
+      },
+      {
+        "provider": "youtube",
+        "id": "NaAFr9JmpEY",
+        "title": "Cyberpunk 2077 - Best car spawn"
+      },
+      {
+        "provider": "youtube",
+        "id": "CX9hqurSF8E",
+        "title": "Cyberpunk 2077 - A disappointing explosion"
+      },
+      {
+        "provider": "youtube",
+        "id": "ELkqrfosIGQ",
+        "title": "Cyberpunk 2077 - A cool Jhonny sequence"
+      }
+    ]
   }
 ]

@@ -81,14 +81,33 @@
     "name": "Ghost of Tsushima",
     "hours": 51,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "qbQtfWd-dbw",
+        "title": "Ghost of Tsushima DIRECTOR'S CUT - Misty Woods"
+      },
+      {
+        "provider": "youtube",
+        "id": "JDbAEPT_omg",
+        "title": "Ghost of Tsushima DIRECTOR'S CUT - Eagle Bossfight"
+      }
+    ]
   },
   {
     "id": "13",
     "name": "Senua's Saga Hellblade II",
     "hours": 8,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "KpWGGf8yNEo",
+        "title": "Senua’s Saga Hellblade II - Fighting (Chapter 2)"
+      }
+    ]
   },
   {
     "id": "14",
@@ -102,6 +121,13 @@
     "name": "God of War Ragnarok",
     "hours": 62,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "ZxgFSRjhEEE",
+        "title": "God of War Ragnarok - King Hrolf Kraki"
+      }
+    ]
   }
 ]

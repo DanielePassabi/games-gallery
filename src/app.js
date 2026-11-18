@@ -1,7 +1,9 @@
+import { periodLabel } from './periods.js';
 import './styles.css';
 import { assetUrl, loadCatalog } from './catalog.js';
 import { createStatistics } from './statistics.js';
 import { createLightbox } from './lightbox.js';
+import { mediaSummary } from './media.js';
 import { createFilterPanel } from './filter-panel.js';
 import { filterYears, summarize, summarizeYear } from './stats.js';
 import { parseFilterState, parseStatisticsState, updateFilterUrl } from './url-state.js';
@@ -10,6 +12,7 @@ const statusLabels = {
   completed: 'Completato',
   unfinished: 'Non completato',
   multiplayer: 'Multiplayer',
+  unknown: 'Stato N/D',
 };
 const platformOrder = ['Desktop_PC', 'Laptop_PC', 'Steam_Deck', 'PS4', 'PS3', 'iPad'];
 const platformLabels = {
@@ -109,8 +112,8 @@ function renderSummary(years) {
     metric.append(element('strong', null, value), document.createTextNode(' '), element('span', 'archive-summary-label', label));
     return metric;
   }));
-  const dates = years.map(({ year }) => Number(year));
-  if (dates.length) elements.summary.append(element('span', 'archive-summary-period', `${Math.min(...dates)}–${Math.max(...dates)}`));
+  const dates = years.map(({ year }) => year).filter(Number.isInteger);
+  if (dates.length) elements.summary.append(element('span', 'archive-summary-period', `${Math.min(...dates)}–${Math.max(...dates)}${years.some(({ year }) => year === 'early') ? ' e precedenti' : ''}`));
 }
 
 function renderCard(game) {
@@ -127,13 +130,14 @@ function renderCard(game) {
     media.append(element('div', 'game-poster game-poster-missing', 'Poster non disponibile'));
   }
 
-  if (game.screenshots.length) {
+  const mediaLabel = mediaSummary(game);
+  if (mediaLabel) {
     const screenshotButton = element('button', 'screenshot-button');
     screenshotButton.type = 'button';
-    screenshotButton.title = `Apri ${game.screenshots.length} screenshot`;
-    screenshotButton.setAttribute('aria-label', `Apri ${game.screenshots.length} screenshot`);
-    screenshotButton.append(createScreenshotIcon(), element('span', 'screenshot-count', game.screenshots.length));
-    screenshotButton.addEventListener('click', () => lightbox.open(game.screenshots));
+    screenshotButton.title = `Apri galleria: ${mediaLabel}`;
+    screenshotButton.setAttribute('aria-label', `${game.name}: apri ${mediaLabel}`);
+    screenshotButton.append(createScreenshotIcon(), element('span', 'screenshot-count', mediaLabel));
+    screenshotButton.addEventListener('click', () => lightbox.open(game));
     media.append(screenshotButton);
   }
 
@@ -168,8 +172,8 @@ function renderYear({ year, games }) {
   section.open = true;
   const summary = element('summary', 'year-summary');
   summary.append(
-    element('span', 'year-title', year),
-    element('span', 'year-metadata', `${stats.games} giochi · ${stats.completed} completati · ${stats.hours}h`),
+    element('span', 'year-title', periodLabel(year)),
+    element('span', 'year-metadata', `${stats.games} ${stats.games === 1 ? 'gioco' : 'giochi'} · ${stats.completed} completati · ${stats.hours === null ? 'Ore N/D' : stats.hours + ' h'}`),
   );
   const grid = element('div', 'games-grid');
   grid.append(...games.map(renderCard));
@@ -178,13 +182,13 @@ function renderYear({ year, games }) {
 }
 
 function renderTimelineGame(game, index) {
-  const hasScreenshots = game.screenshots.length > 0;
-  const tile = element(hasScreenshots ? 'button' : 'div', `timeline-game status-${game.status}`);
-  if (hasScreenshots) {
+  const mediaLabel = mediaSummary(game);
+  const tile = element(mediaLabel ? 'button' : 'div', `timeline-game status-${game.status}`);
+  if (mediaLabel) {
     tile.type = 'button';
-    tile.addEventListener('click', () => lightbox.open(game.screenshots));
+    tile.addEventListener('click', () => lightbox.open(game));
   }
-  tile.title = `${index + 1}. ${game.name}${hasScreenshots ? ` · Apri ${game.screenshots.length} screenshot` : ''}`;
+  tile.title = `${index + 1}. ${game.name}${mediaLabel ? ` · Apri ${mediaLabel}` : ''}`;
   tile.setAttribute('aria-label', tile.title);
 
   if (game.poster) {
@@ -200,7 +204,7 @@ function renderTimelineGame(game, index) {
   const overlay = element('span', 'timeline-game-overlay');
   overlay.append(
     element('strong', null, game.name),
-    element('small', null, hasScreenshots ? `${game.screenshots.length} screenshot` : statusLabels[game.status]),
+    element('small', null, mediaLabel || statusLabels[game.status]),
   );
   tile.append(overlay);
   return tile;
@@ -227,7 +231,7 @@ function renderTimeline(filteredYears) {
     marker.setAttribute('aria-hidden', 'true');
     const heading = element('div', 'timeline-heading');
     const titleRow = element('div', 'timeline-title-row');
-    const title = element('h2', 'timeline-year-title', year);
+    const title = element('h2', 'timeline-year-title', periodLabel(year));
     titleRow.append(title);
     if (Number(year) === currentYear) titleRow.append(element('span', 'timeline-current', 'In corso'));
     const countLabel = `${games.length} ${games.length === 1 ? 'gioco' : 'giochi'}`;
@@ -237,12 +241,13 @@ function renderTimeline(filteredYears) {
     const volumeFill = element('span', 'timeline-volume-fill');
     volume.setAttribute(
       'aria-label',
-      `${stats.completed} completati, ${stats.unfinished} non completati, ${stats.multiplayer} multiplayer`,
+      `${stats.completed} completati, ${stats.unfinished} non completati, ${stats.multiplayer} multiplayer, ${stats.unknown} con stato N/D`,
     );
     [
       ['completed', stats.completed],
       ['unfinished', stats.unfinished],
       ['multiplayer', stats.multiplayer],
+      ['unknown', stats.unknown],
     ].forEach(([status, count]) => {
       if (!count) return;
       const segment = element('span', `timeline-volume-segment timeline-volume-${status}`);
@@ -393,7 +398,7 @@ function populatePlatforms(years) {
 
 function populateYears(years) {
   elements.year.append(...years.map(({ year }) => {
-    const option = element('option', null, year);
+    const option = element('option', null, periodLabel(year));
     option.value = String(year);
     return option;
   }));

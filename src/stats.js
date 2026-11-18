@@ -16,13 +16,15 @@ export function filterYears(years, { platform = 'all', query, screenshots = fals
 export function summarize(years) {
   const games = years.flatMap(({ games: yearGames }) => yearGames);
   const completed = games.filter(({ status }) => status === 'completed').length;
+  const knownStatusGames = games.filter(({ status }) => status !== 'unknown').length;
   const knownHoursGames = games.filter(({ hours }) => hours !== null).length;
   const knownHours = games.reduce((total, { hours }) => total + (hours ?? 0), 0);
 
   return {
     games: games.length,
     completed,
-    completionRate: games.length ? Math.round((completed / games.length) * 100) : 0,
+    knownStatusGames,
+    completionRate: knownStatusGames ? Math.round((completed / knownStatusGames) * 100) : null,
     knownHoursGames,
     hours: knownHours,
     days: Math.round((knownHours / 24) * 10) / 10,
@@ -35,6 +37,7 @@ export function summarizeYear(games) {
     completed: games.filter(({ status }) => status === 'completed').length,
     unfinished: games.filter(({ status }) => status === 'unfinished').length,
     multiplayer: games.filter(({ status }) => status === 'multiplayer').length,
-    hours: games.reduce((total, { hours }) => total + (hours ?? 0), 0),
+    unknown: games.filter(({ status }) => status === 'unknown').length,
+    hours: games.some(({ hours }) => hours !== null) ? games.reduce((total, { hours }) => total + (hours ?? 0), 0) : null,
   };
 }

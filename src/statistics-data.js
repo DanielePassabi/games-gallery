@@ -1,6 +1,7 @@
+import { comparePeriods } from './periods.js';
 import { bin, max, mean, median, range } from 'd3-array';
 
-export const statisticsPlatformOrder = ['iPad', 'PS3', 'PS4', 'Laptop_PC', 'Desktop_PC', 'Steam_Deck'];
+export const statisticsPlatformOrder = ['iOS', 'iPad', 'PS3', 'PS4', 'Laptop_PC', 'Desktop_PC', 'Steam_Deck'];
 export const statisticsPlatformLabels = {
   iPad: 'iPad',
   PS3: 'PS3',
@@ -11,6 +12,7 @@ export const statisticsPlatformLabels = {
   unknown: 'Non specificata',
 };
 export const statisticsPlatformColors = {
+  iOS: '#547f91',
   iPad: '#4cbeb5',
   PS3: '#e27676',
   PS4: '#a982cd',
@@ -23,7 +25,7 @@ export const statisticsPlatformColors = {
 export function selectStatisticsYears(years, selection = null) {
   const selected = selection === null ? null : new Set(selection.map(String));
   return years.filter(({ year }) => selected === null || selected.has(String(year)))
-    .sort((left, right) => Number(left.year) - Number(right.year));
+    .sort((left, right) => comparePeriods(left.year, right.year));
 }
 
 export function statisticsGames(years) {
@@ -70,7 +72,7 @@ export function rankedGames(years, limit = 50) {
   });
   return [...groups.values()]
     .filter(({ knownHoursCount }) => knownHoursCount > 0)
-    .map((game) => ({ ...game, experiences: game.experiences.sort((left, right) => Number(left.year) - Number(right.year)
+    .map((game) => ({ ...game, experiences: game.experiences.sort((left, right) => comparePeriods(left.year, right.year)
       || String(left.id).localeCompare(String(right.id), 'it', { numeric: true })) }))
     .sort((left, right) => right.hours - left.hours || left.name.localeCompare(right.name, 'it'))
     .slice(0, limit);

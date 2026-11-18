@@ -53,28 +53,101 @@
     "name": "NieR Replicant ver.1.22474487139...",
     "hours": null,
     "status": "unfinished",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "2Jq0ow1xgxc",
+        "title": "NieR Replicant - Sacrifice"
+      },
+      {
+        "provider": "youtube",
+        "id": "FZAeHEQkazw",
+        "title": "NieR Replicant - Emil's Sister"
+      },
+      {
+        "provider": "youtube",
+        "id": "NZjW6HYRNsY",
+        "title": "NieR Replicant - A Fat Shade"
+      }
+    ]
   },
   {
     "id": "09",
     "name": "Hearthstone",
     "hours": null,
     "status": "completed",
-    "platform": "iPad"
+    "platform": "iPad",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "bfwNnNBIV6Y",
+        "title": "Hearthstone - Crafting Doctor Boom"
+      }
+    ]
   },
   {
     "id": "10",
     "name": "Resident Evil Village",
     "hours": 12,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "FoRb3v_KJpk",
+        "title": "Resident Evil Village - Miranda Boss Fight"
+      },
+      {
+        "provider": "youtube",
+        "id": "BGQIZ20XZaQ",
+        "title": "Resident Evil Village - Big guy with hammer (Chris gameplay)"
+      },
+      {
+        "provider": "youtube",
+        "id": "PAlfqB-FjgM",
+        "title": "Resident Evil  Village - Vârcolac did not like the Magnum"
+      },
+      {
+        "provider": "youtube",
+        "id": "ny4nfMulf4Q",
+        "title": "Resident Evil  Village - Moreau Boss Fight"
+      }
+    ]
   },
   {
     "id": "11",
     "name": "Kena Bridge of Spirits",
     "hours": 13,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "oUpO9qWPjJk",
+        "title": "Kena Bridge of Spirits - Corrupt Toshi, Corrupt Rot God and Ending"
+      },
+      {
+        "provider": "youtube",
+        "id": "FHfJsXZzTZQ",
+        "title": "Kena Bridge of Spirits - Corrupt Woodsmith"
+      },
+      {
+        "provider": "youtube",
+        "id": "GH0GmNXj-04",
+        "title": "Kena Bridge of Spirits - Corrupt Taro"
+      },
+      {
+        "provider": "youtube",
+        "id": "TPJfH2v7kRk",
+        "title": "Kena Bridge of Spirits - Shrine Guardian"
+      },
+      {
+        "provider": "youtube",
+        "id": "esg5ruFr8Go",
+        "title": "Kena Bridge of Spirits - Wooden Knight"
+      }
+    ]
   },
   {
     "id": "12",
@@ -88,7 +161,39 @@
     "name": "The Legend of Zelda: Breath of the Wild",
     "hours": 83,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "MlPdXtJ4_-s",
+        "title": "Zelda Breath of the Wild - Final Boss and True Ending"
+      },
+      {
+        "provider": "youtube",
+        "id": "Az5LX31zpos",
+        "title": "Zelda Breath of the Wild - Final Boss and Ending"
+      },
+      {
+        "provider": "youtube",
+        "id": "g8UCjJbEdV4",
+        "title": "Zelda Breath of the Wild - Molduking"
+      },
+      {
+        "provider": "youtube",
+        "id": "FCPqqa7ExXk",
+        "title": "Zelda Breath of the Wild - Freeing Naydra"
+      },
+      {
+        "provider": "youtube",
+        "id": "JcNGoKROIuw",
+        "title": "Zelda Breath of the Wild - The Master Sword"
+      },
+      {
+        "provider": "youtube",
+        "id": "u0669Oz5waM",
+        "title": "Zelda Breath of the Wild - Molduga Boss"
+      }
+    ]
   },
   {
     "id": "14",
@@ -116,6 +221,53 @@
     "name": "Final Fantasy VII Remake Intergrade",
     "hours": 42,
     "status": "completed",
-    "platform": "Desktop_PC"
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "9HPiuPLnQOs",
+        "title": "Final Fantasy VII Remake Intergrade - Leviathan"
+      },
+      {
+        "provider": "youtube",
+        "id": "TbYSfnfCtQw",
+        "title": "Final Fantasy VII Remake Intergrade - Ending"
+      },
+      {
+        "provider": "youtube",
+        "id": "V3VhtoVIOAc",
+        "title": "Final Fantasy VII Remake Intergrade - The Arsenal and Cloud goes Brum Brum"
+      },
+      {
+        "provider": "youtube",
+        "id": "faFybhpDY-4",
+        "title": "Final Fantasy VII Remake Intergrade - Rufus"
+      },
+      {
+        "provider": "youtube",
+        "id": "iGau0EuUXj4",
+        "title": "Final Fantasy VII Remake Intergrade - Genova Dreamweaver"
+      },
+      {
+        "provider": "youtube",
+        "id": "AHVcLtJc-24",
+        "title": "Final Fantasy VII Remake Intergrade - Doggo, Cloud's Past and Turks"
+      },
+      {
+        "provider": "youtube",
+        "id": "USbqm1JJ42Q",
+        "title": "Final Fantasy VII Remake Intergrade - F You Hojo"
+      },
+      {
+        "provider": "youtube",
+        "id": "cMADmmIZi1g",
+        "title": "Final Fantasy VII Remake Intergrade - I love the view"
+      },
+      {
+        "provider": "youtube",
+        "id": "hxdn_j8SUrM",
+        "title": "Final Fantasy VII Remake Intergrade - Cloud's Transformation"
+      }
+    ]
   }
 ]

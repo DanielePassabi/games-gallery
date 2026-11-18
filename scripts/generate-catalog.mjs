@@ -1,7 +1,9 @@
+import { comparePeriods } from '../src/periods.js';
 import { access, mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
+import { normalizeVideos } from '../src/media.js';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dataDirectory = path.join(projectRoot, 'data');
@@ -10,7 +12,8 @@ const platformsDirectory = path.join(projectRoot, 'public', 'assets', 'platforms
 const generatedDirectory = path.join(projectRoot, 'public', 'generated');
 const outputFile = path.join(projectRoot, 'public', 'data', 'catalog.json');
 const imageExtensions = new Set(['.gif', '.jpeg', '.jpg', '.png', '.webp']);
-const validStatuses = new Set(['completed', 'unfinished', 'multiplayer']);
+const validStatuses = new Set(['completed', 'unfinished', 'multiplayer', 'unknown']);
+const periodFile = /^games_(\d{4}|early)\.json$/;
 const naturalSort = new Intl.Collator('en', { numeric: true, sensitivity: 'base' }).compare;
 
 function invariant(condition, message) {
@@ -88,8 +91,8 @@ async function findPoster(yearDirectory, gameId) {
 }
 
 async function buildYear(fileName, { write }) {
-  const year = Number(fileName.match(/^games_(\d{4})\.json$/)?.[1]);
-  invariant(Number.isInteger(year), `${fileName}: invalid filename, expected games_YYYY.json`);
+  const period = fileName.match(periodFile)[1];
+  const year = period === 'early' ? period : Number(period);
 
   const source = JSON.parse(await readFile(path.join(dataDirectory, fileName), 'utf8'));
   invariant(Array.isArray(source), `${fileName}: root value must be an array`);
@@ -102,6 +105,7 @@ async function buildYear(fileName, { write }) {
   for (const [index, game] of source.entries()) {
     const context = `${fileName}[${index}]`;
     validateGame(game, context);
+    const videos = normalizeVideos(game.videos, `${context}.videos`);
     invariant(!ids.has(game.id), `${context}: duplicate id "${game.id}"`);
     ids.add(game.id);
 
@@ -138,6 +142,7 @@ async function buildYear(fileName, { write }) {
       ...(game.platform ? { platform: game.platform } : {}),
       poster: posterAsset,
       screenshots: screenshotAssets,
+      videos,
     });
   }
 
@@ -159,12 +164,12 @@ async function buildYear(fileName, { write }) {
 
 export async function generateCatalog({ write = true } = {}) {
   const dataFiles = (await readdir(dataDirectory))
-    .filter((fileName) => /^games_\d{4}\.json$/.test(fileName))
+    .filter((fileName) => periodFile.test(fileName))
     .sort(naturalSort);
   invariant(dataFiles.length > 0, 'No data/games_YYYY.json files found');
 
   const years = await Promise.all(dataFiles.map((fileName) => buildYear(fileName, { write })));
-  years.sort((left, right) => right.year - left.year);
+  years.sort((left, right) => comparePeriods(right.year, left.year));
 
   const catalog = { schemaVersion: 2, years };
   if (write) {
@@ -177,7 +182,7 @@ export async function generateCatalog({ write = true } = {}) {
     (total, entry) => total + entry.games.reduce((sum, game) => sum + game.screenshots.length, 0),
     0,
   );
-  console.log(`Catalog valid: ${gameCount} games, ${years.length} years, ${screenshotCount} screenshots.`);
+  console.log(`Catalog valid: ${gameCount} games, ${years.length} periods, ${screenshotCount} screenshots.`);
   return catalog;
 }
 

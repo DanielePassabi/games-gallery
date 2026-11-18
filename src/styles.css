@@ -667,6 +667,28 @@ button.timeline-game { cursor: pointer; }
 .lightbox-grid-controls button[aria-pressed='true'] { background: rgb(255 255 255 / 22%); }
 .lightbox-counter { top: 1rem; left: 50%; padding: .45rem .75rem; border-radius: 999px; font-size: .78rem; transform: translateX(-50%); }
 
+.lightbox-media-heading { width: min(1500px, 100%); margin: 0 auto 1.5rem; }
+.lightbox-media-heading h2 { margin: 0 0 1rem; font-size: clamp(1.4rem, 4vw, 2rem); overflow-wrap: anywhere; }
+.lightbox-media-tabs { display: flex; gap: .5rem; border-bottom: 1px solid #34433d; padding-bottom: .85rem; }
+.lightbox-media-tabs button { min-height: 44px; padding: .6rem 1.2rem; border: 1px solid #34433d; border-radius: 999px; background: transparent; color: #c3d5cc; cursor: pointer; font: inherit; font-size: .9rem; }
+.lightbox-media-tabs button[aria-selected='true'] { background: var(--primary); color: var(--background); border-color: var(--primary); font-weight: 700; }
+.lightbox-video-panel { width: min(1500px, 100%); margin: 0 auto; }
+.lightbox-video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 1.25rem; }
+.lightbox-video-card { display: flex; flex-direction: column; min-width: 0; padding: 0 0 1.1rem; border: 1px solid #34433d; border-radius: 12px; overflow: hidden; background: #18251f; color: #fff; text-align: left; font: inherit; cursor: pointer; }
+.lightbox-video-cover { position: relative; display: grid; width: 100%; aspect-ratio: 16 / 9; background: #25382f; place-items: center; overflow: hidden; }
+.lightbox-video-cover img { width: 100%; height: 100%; object-fit: cover; }
+.lightbox-video-play { position: absolute; display: grid; width: 3.3rem; height: 3.3rem; padding-left: .15rem; place-items: center; background: rgb(8 10 9 / 80%); border: 1px solid rgb(255 255 255 / 45%); border-radius: 50%; font-size: 1.15rem; }
+.lightbox-video-card:hover { border-color: var(--primary); }
+.lightbox-video-card:hover .lightbox-video-play { background: var(--primary); color: var(--background); }
+.lightbox-video-caption { margin: 1rem 1rem .4rem; color: #abc2b7; font-size: .75rem; }
+.lightbox-video-card strong { margin: 0 1rem; font-size: 1rem; line-height: 1.5; overflow-wrap: anywhere; }
+.lightbox-video-viewer { max-width: 1100px; margin: 0 auto; }
+.lightbox-video-player { display: block; width: 100%; min-height: 200px; aspect-ratio: 16 / 9; border: 0; background: #000; border-radius: 8px; }
+.lightbox-video-viewer h3 { margin: 1rem 0 .5rem; font-size: 1.1rem; overflow-wrap: anywhere; }
+.lightbox-video-help { margin: 0 0 1.5rem; color: #abc2b7; font-size: .85rem; line-height: 1.6; }
+.lightbox-video-help a { color: var(--primary); text-underline-offset: .2em; }
+.lightbox-media-tabs button:focus-visible, .lightbox-video-card:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
+
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; border: 0; clip: rect(0 0 0 0); overflow: hidden; white-space: nowrap; }
 
 @media (max-width: 900px) {
@@ -820,3 +842,6 @@ button.timeline-game { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+.timeline-volume-unknown, .statistics-status-unknown { background: var(--text-muted); }
+.status-unknown { border-bottom: 4px solid var(--text-muted); }

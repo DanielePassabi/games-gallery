@@ -1,3 +1,4 @@
+import { periodLabel } from './periods.js';
 import { Chart, registerables } from 'chart.js';
 import { summarizeYear } from './stats.js';
 import { platformDistribution, statisticsGames } from './statistics-data.js';
@@ -5,8 +6,8 @@ import { compactViewportQuery } from './filter-panel.js';
 
 Chart.register(...registerables);
 
-const statusColors = { completed: '#78b795', unfinished: '#e27676', multiplayer: '#6f9fdc' };
-const statusLabels = { completed: 'Completati', unfinished: 'Non completati', multiplayer: 'Multiplayer' };
+const statusColors = { completed: '#78b795', unfinished: '#e27676', multiplayer: '#6f9fdc', unknown: '#919794' };
+const statusLabels = { completed: 'Completati', unfinished: 'Non completati', multiplayer: 'Multiplayer', unknown: 'Stato N/D' };
 const format = (value) => value.toLocaleString('it-IT', { maximumFractionDigits: 1, useGrouping: 'always' });
 const formatBoundary = (value) => value.toLocaleString('it-IT', { maximumFractionDigits: 3, useGrouping: 'always' });
 const themeColor = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -124,7 +125,7 @@ export function createCharts(canvases) {
 
   function renderTrend(years) {
     const rows = years.map(({ year, games }) => ({ year, ...summarizeYear(games) }));
-    const labels = rows.map(({ year }) => String(year));
+    const labels = rows.map(({ year }) => periodLabel(year));
     const options = commonOptions();
     options.scales.x.stacked = true;
     options.scales.y.stacked = true;
@@ -134,12 +135,12 @@ export function createCharts(canvases) {
       data: rows.map((row) => row[key]),
       backgroundColor: statusColors[key],
       borderRadius: 2,
-    })), `Giochi per anno: ${rows.map((row) => `${row.year}: ${row.completed} completati, ${row.unfinished} non completati, ${row.multiplayer} multiplayer`).join('; ')}`);
+    })), `Giochi per anno: ${rows.map((row) => `${periodLabel(row.year)}: ${row.completed} completati, ${row.unfinished} non completati, ${row.multiplayer} multiplayer, ${row.unknown} con stato N/D`).join('; ')}`);
 
     const hours = ensure('hoursByYear', commonOptions({ unit: 'Ore', legend: false }));
     update(hours, labels, [{
       label: 'Ore registrate', data: rows.map((row) => row.hours), backgroundColor: '#deb174', borderRadius: 3,
-    }], `Ore registrate per anno: ${rows.map((row) => `${row.year}: ${format(row.hours)} ore`).join('; ')}`);
+    }], `Ore registrate per anno: ${rows.map((row) => `${periodLabel(row.year)}: ${row.hours === null ? 'ore N/D' : format(row.hours) + ' ore'}`).join('; ')}`);
   }
 
   function renderHistogram(histogram) {
@@ -181,12 +182,12 @@ export function createCharts(canvases) {
     options.scales.y.ticks.callback = (value) => `${value}%`;
     options.plugins.tooltip = { callbacks: { label: (item) => `${item.dataset.label}: ${format(item.parsed.y)}%` } };
     const chart = ensure('platformsByYear', options);
-    update(chart, years.map(({ year }) => String(year)), platforms.map((platform) => ({
+    update(chart, years.map(({ year }) => periodLabel(year)), platforms.map((platform) => ({
       label: platform.label,
       backgroundColor: platform.color,
       data: years.map(({ games }) => games.length
         ? games.filter((game) => (game.platform || 'unknown') === platform.key).length / games.length * 100 : 0),
-    })), `Piattaforme per anno: ${years.map(({ year, games }) => `${year}: ${platformDistribution(games).map(({ label, count }) => `${label} ${count}`).join(', ')}`).join('; ')}`);
+    })), `Piattaforme per anno: ${years.map(({ year, games }) => `${periodLabel(year)}: ${platformDistribution(games).map(({ label, count }) => `${label} ${count}`).join(', ')}`).join('; ')}`);
   }
 
   const appearance = matchMedia('(prefers-color-scheme: dark)');
