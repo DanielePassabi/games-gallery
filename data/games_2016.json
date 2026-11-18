@@ -10,6 +10,11 @@
         "provider": "youtube",
         "id": "8VFh6__1rSA",
         "title": "SUPERHOT - PC Gameplay Best Graphics (2)"
+      },
+      {
+        "provider": "youtube",
+        "id": "5tFZHlm5XOw",
+        "title": "SUPERHOT - Windows 10 Screen Recording - 1080HD"
       }
     ]
   },
@@ -88,7 +93,14 @@
     "name": "Grand Theft Auto V",
     "hours": 46,
     "status": "completed",
-    "platform": "Laptop_PC"
+    "platform": "Laptop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "zkQSvJ3_zQ0",
+        "title": "GTA V - A Jet journey across the map"
+      }
+    ]
   },
   {
     "id": "13",

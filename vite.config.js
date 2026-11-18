@@ -7,12 +7,13 @@ function catalogPlugin() {
 
   return {
     name: 'games-catalog',
-    async buildStart() {
+    // Generate public assets before Vite indexes publicDir for the dev server.
+    async configResolved() {
       await generateCatalog();
     },
     configureServer(server) {
       const watchedPaths = ['data', 'public/assets/games', 'public/assets/platforms'];
-      server.watcher.add(watchedPaths);
+      server.watcher.add(watchedPaths.map((entry) => path.resolve(server.config.root, entry)));
 
       const regenerate = (changedPath) => {
         const relativePath = path.relative(server.config.root, changedPath).replaceAll('\\', '/');

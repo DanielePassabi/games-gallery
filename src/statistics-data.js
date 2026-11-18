@@ -1,7 +1,7 @@
 import { comparePeriods } from './periods.js';
 import { bin, max, mean, median, range } from 'd3-array';
 
-export const statisticsPlatformOrder = ['iOS', 'iPad', 'PS3', 'PS4', 'Laptop_PC', 'Desktop_PC', 'Steam_Deck'];
+export const statisticsPlatformOrder = ['iPad', 'PS3', 'PS4', 'Laptop_PC', 'Desktop_PC', 'Steam_Deck'];
 export const statisticsPlatformLabels = {
   iPad: 'iPad',
   PS3: 'PS3',
@@ -12,7 +12,6 @@ export const statisticsPlatformLabels = {
   unknown: 'Non specificata',
 };
 export const statisticsPlatformColors = {
-  iOS: '#547f91',
   iPad: '#4cbeb5',
   PS3: '#e27676',
   PS4: '#a982cd',

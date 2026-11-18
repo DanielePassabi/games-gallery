@@ -3,13 +3,67 @@
     "id": "01",
     "name": "Terraria",
     "hours": null,
-    "status": "unknown",
-    "platform": "iOS",
+    "status": "completed",
+    "platform": "iPad",
     "videos": [
       {
         "provider": "youtube",
         "id": "lVIkz_tkpqA",
         "title": "Terraria iOs - My World"
+      }
+    ]
+  },
+  {
+    "id": "02",
+    "name": "Monster Hunter Freedom Unite",
+    "hours": null,
+    "status": "unfinished",
+    "platform": "iPad",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "I2ZDquev0FM",
+        "title": "MHFU for iOs - Boss - Giadrome"
+      },
+      {
+        "provider": "youtube",
+        "id": "lZ_V2BJPxjo",
+        "title": "MHFU for iOs - Boss - Bulldrome"
+      },
+      {
+        "provider": "youtube",
+        "id": "4gWY4xv9F1I",
+        "title": "MHFU for iOs - Boss - Velocidrome"
+      },
+      {
+        "provider": "youtube",
+        "id": "Nog5DV_T1LY",
+        "title": "MHFU for iOs - Boss - Yian Kut - Ku"
+      },
+      {
+        "provider": "youtube",
+        "id": "9ZA0V_4bFnc",
+        "title": "MHFU for iOs - Boss - Gendrome"
+      },
+      {
+        "provider": "youtube",
+        "id": "oZzVte3ilEA",
+        "title": "MHFU for iOs - Boss - Congalala"
+      },
+      {
+        "provider": "youtube",
+        "id": "afLwpoaQFwU",
+        "title": "MHFU for iOs - Boss - Yan Kut - Ku (Blue)"
+      },
+      {
+        "provider": "youtube",
+        "id": "_aNRICNMngo",
+        "title": "MHFU for iOs - Boss - Plesioth"
+      },
+      {
+        "provider": "youtube",
+        "id": "P6Y4LU4nAkQ",
+        "title": "MHFU for iOs - Boss - Ioprey"
       }
     ]
   }
