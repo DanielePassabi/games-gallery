@@ -1,4 +1,4 @@
-export function filterYears(years, { platform = 'all', query, screenshots = false, status, year = 'all' }) {
+export function filterYears(years, { platform = 'all', query, media = false, status, year = 'all' }) {
   const normalizedQuery = query.trim().toLocaleLowerCase('it');
 
   return years.filter(({ year: entryYear }) => year === 'all' || String(entryYear) === String(year)).map(({ year: entryYear, games }) => ({
@@ -6,9 +6,9 @@ export function filterYears(years, { platform = 'all', query, screenshots = fals
     games: games.filter((game) => {
       const matchesStatus = status === 'all' || game.status === status;
       const matchesPlatform = platform === 'all' || game.platform === platform;
-      const matchesScreenshots = !screenshots || game.screenshots.length > 0;
+      const matchesMedia = !media || game.screenshots?.length > 0 || game.videos?.length > 0;
       const matchesQuery = !normalizedQuery || game.name.toLocaleLowerCase('it').includes(normalizedQuery);
-      return matchesStatus && matchesPlatform && matchesScreenshots && matchesQuery;
+      return matchesStatus && matchesPlatform && matchesMedia && matchesQuery;
     }),
   })).filter(({ games }) => games.length > 0);
 }

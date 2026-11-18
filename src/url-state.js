@@ -27,7 +27,7 @@ export function parseFilterState(search, { platforms = [], years = [] } = {}) {
     status: validStatuses.has(status) ? status : 'all',
     platform: platform === 'all' || platforms.includes(platform) ? platform : 'all',
     year: year === 'all' || years.map(String).includes(year) ? year : 'all',
-    screenshots: params.get('screenshots') === '1',
+    media: (params.get('media') ?? params.get('screenshots')) === '1',
     view: validViews.has(params.get('view')) ? params.get('view') : 'grid',
   };
 }
@@ -38,7 +38,7 @@ export function serializeFilterState(state) {
   if (state.status !== 'all') params.set('status', state.status);
   if (state.platform !== 'all') params.set('platform', state.platform);
   if (state.year !== 'all') params.set('year', String(state.year));
-  if (state.screenshots) params.set('screenshots', '1');
+  if (state.media) params.set('media', '1');
   if (state.view === 'timeline') params.set('view', 'timeline');
   const value = params.toString();
   return value ? `?${value}` : '';

@@ -35,7 +35,7 @@ const elements = {
   platformTriggerIcon: document.querySelector('.platform-trigger-icon'),
   platformTriggerLabel: document.querySelector('.platform-trigger-label'),
   resultCount: document.querySelector('#result-count'),
-  screenshots: document.querySelector('#screenshots-filter'),
+  media: document.querySelector('#media-filter'),
   search: document.querySelector('#search'),
   summary: document.querySelector('#summary'),
   explore: document.querySelector('#explore-panel'),
@@ -48,7 +48,7 @@ const statistics = createStatistics(elements.statistics, {
   onChange: (patch, options) => commitFilters(patch, options),
   onGameSelect: (game) => commitFilters({
     section: 'explore', query: game.name, year: 'all',
-    platform: 'all', status: 'all', screenshots: false,
+    platform: 'all', status: 'all', media: false,
   }),
 });
 const lightbox = createLightbox(document.querySelector('#lightbox'));
@@ -56,7 +56,7 @@ const state = {
   catalog: null,
   platform: 'all',
   query: '',
-  screenshots: false,
+  media: false,
   status: 'all',
   view: 'grid',
   year: 'all',
@@ -67,7 +67,7 @@ const state = {
 };
 let lastGalleryState;
 const filterPanel = createFilterPanel({
-  onReset: () => commitFilters({ platform: 'all', status: 'all', year: 'all', screenshots: false }),
+  onReset: () => commitFilters({ platform: 'all', status: 'all', year: 'all', media: false }),
   onClose: () => closePlatformMenu(),
 });
 
@@ -281,7 +281,7 @@ function render() {
     statistics.render(state.catalog, state);
     return;
   }
-  const galleryState = JSON.stringify([state.query, state.status, state.platform, state.year, state.screenshots, state.view]);
+  const galleryState = JSON.stringify([state.query, state.status, state.platform, state.year, state.media, state.view]);
   if (galleryState === lastGalleryState) return;
   lastGalleryState = galleryState;
   const filteredYears = filterYears(state.catalog.years, state);
@@ -291,7 +291,7 @@ function render() {
   const isFiltered = state.status !== 'all'
     || state.platform !== 'all'
     || state.year !== 'all'
-    || state.screenshots
+    || state.media
     || state.query.trim();
 
   elements.resultCount.textContent = isFiltered
@@ -351,7 +351,7 @@ function syncControls() {
   });
   elements.search.value = state.query;
   elements.year.value = state.year;
-  elements.screenshots.setAttribute('aria-pressed', String(state.screenshots));
+  elements.media.setAttribute('aria-pressed', String(state.media));
   document.querySelectorAll('[data-status]').forEach((button) => {
     const active = button.dataset.status === state.status;
     button.classList.toggle('is-active', active);
@@ -409,7 +409,7 @@ document.querySelectorAll('[data-status]').forEach((button) => {
 });
 elements.search.addEventListener('input', () => commitFilters({ query: elements.search.value }, { replace: true }));
 elements.year.addEventListener('change', () => commitFilters({ year: elements.year.value }));
-elements.screenshots.addEventListener('click', () => commitFilters({ screenshots: !state.screenshots }));
+elements.media.addEventListener('click', () => commitFilters({ media: !state.media }));
 elements.viewButtons.forEach((button) => {
   button.addEventListener('click', () => commitFilters({ view: button.dataset.view }));
 });

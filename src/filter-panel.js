@@ -10,7 +10,7 @@ export function createFilterPanel({ onReset, onClose }) {
   const summary = document.querySelector('#active-filter-summary');
   const apply = document.querySelector('#filter-dialog-apply');
   const compact = matchMedia(compactViewportQuery);
-  const controls = ['.filter-group', '.platform-field', '.year-field', '#screenshots-filter'].map((selector) => {
+  const controls = ['.filter-group', '.platform-field', '.year-field', '#media-filter'].map((selector) => {
     const control = document.querySelector(selector);
     const anchor = document.createComment('filter position');
     control.before(anchor);
@@ -60,7 +60,7 @@ export function createFilterPanel({ onReset, onClose }) {
         state.status !== 'all' ? labels.status[state.status] : null,
         state.platform !== 'all' ? labels.platform[state.platform] ?? state.platform.replaceAll('_', ' ') : null,
         state.year !== 'all' ? periodLabel(state.year) : null,
-        state.screenshots ? 'Con screenshot' : null,
+        state.media ? 'Con foto o video' : null,
       ].filter(Boolean);
       badge.hidden = active.length === 0;
       badge.textContent = active.length;

@@ -8,7 +8,7 @@ const years = [
     games: [
       { name: 'Alpha', hours: 10, platform: 'Desktop_PC', screenshots: [{}], status: 'completed' },
       { name: 'Beta', hours: null, platform: 'Steam_Deck', screenshots: [], status: 'unfinished' },
-      { name: 'Gamma', hours: 5.5, platform: 'Desktop_PC', screenshots: [{}], status: 'multiplayer' },
+      { name: 'Gamma', hours: 5.5, platform: 'Desktop_PC', screenshots: [], videos: [{}], status: 'multiplayer' },
     ],
   },
   {
@@ -34,11 +34,11 @@ test('filters by platform together with the other filters', () => {
   assert.deepEqual(result, [{ year: 2025, games: [years[1].games[0]] }]);
 });
 
-test('filters by year and screenshot availability', () => {
+test('filters by year and photo or video availability', () => {
   const result = filterYears(years, {
     platform: 'all',
     query: '',
-    screenshots: true,
+    media: true,
     status: 'all',
     year: '2026',
   });

@@ -48,7 +48,7 @@ Open the URL printed by Vite. Changes to source files, data and assets are picke
 
    Use the 11-character video ID from the YouTube link, not a full URL or iframe HTML. Titles are saved locally so browsing does not depend on a metadata API. Array order controls display order. Validation rejects missing titles, invalid IDs, unsupported providers and duplicate videos within one game. Omit `videos` for games without gameplay recordings.
 
-   Cards and Timeline open a single media gallery with **Foto** and **Video** tabs, showing only available categories. Video-only games are supported; the existing **Con screenshot** filter still selects games with photos. YouTube thumbnails load lazily; the privacy-enhanced player is created only after selecting a video, without autoplay, and removed on back, tab change or close. An **Apri su YouTube** link remains available if embedding is disabled. Unlisted videos are accessible to visitors once linked from the public gallery; they are not private.
+   Cards and Timeline open a single media gallery with **Foto** and **Video** tabs, showing only available categories. The **Con foto o video** filter includes games with screenshots, gameplay videos or both. YouTube thumbnails load lazily; the privacy-enhanced player is created only after selecting a video, without autoplay, and removed on back, tab change or close. An **Apri su YouTube** link remains available if embedding is disabled. Unlisted videos are accessible to visitors once linked from the public gallery; they are not private.
 
 5. Run validation:
 
@@ -60,7 +60,7 @@ Years and asset paths are derived at build time. `public/data/catalog.json` is g
 
 The same process creates cached WebP derivatives in `public/generated/`: 640×360 posters for cards and 480×270 thumbnails for screenshot grids. Original screenshots are loaded only by the fullscreen viewer. Generated files are ignored by Git and rebuilt only when their source image changes.
 
-Search, status, platform, year, screenshot-only filters and the selected Grid/Timeline view are stored in the URL, so the current view survives refreshes and browser back/forward navigation.
+Search, status, platform, year, media filters and the selected Grid/Timeline view are stored in the URL, so the current view survives refreshes and browser back/forward navigation.
 
 The Timeline uses each year as a container, starting with “Tanto tempo fa...” (`data/games_early.json` and `public/assets/games/early/`), followed by the dated years. Games keep the order in which they appear in the yearly JSON; no month or day information is inferred.
 
@@ -70,7 +70,7 @@ Statistics includes yearly activity and hours, completion, a numeric histogram w
 
 The ranking sums known hours for each title within the selected years and shows a cover plus a bar segmented by individual experience. Missing hours remain unknown; an available cover from another experience is used when needed. Clicking a ranked game searches its name across all years and platforms in Explore. The archive, timeline and histogram still retain individual entries. Platform evolution and the treemap follow this order: iOS, iPad, PS3, PS4, Laptop PC, Desktop PC, Steam Deck.
 
-On phones and smaller tablets, only a compact search row remains sticky. The Filters button opens the existing status, platform, year and screenshot controls in a native modal sheet, with an active count, live result count and reset that preserves the search. Resizing to desktop restores the same controls to the toolbar. The compact layout also applies to short landscape screens up to 1100px wide. Statistics keeps the multi-year selector in a collapsible Period control, and yearly charts scroll horizontally when needed to preserve readable labels. Timeline captions remain visible on touch screens. Screenshot controls respect safe areas and the dynamic viewport; the viewer supports horizontal swipes and retains its buttons and filmstrip.
+On phones and smaller tablets, only a compact search row remains sticky. The Filters button opens the existing status, platform, year and media controls in a native modal sheet, with an active count, live result count and reset that preserves the search. Resizing to desktop restores the same controls to the toolbar. The compact layout also applies to short landscape screens up to 1100px wide. Statistics keeps the multi-year selector in a collapsible Period control, and yearly charts scroll horizontally when needed to preserve readable labels. Timeline captions remain visible on touch screens. Screenshot controls respect safe areas and the dynamic viewport; the viewer supports horizontal swipes and retains its buttons and filmstrip.
 
 ## Production build
 
