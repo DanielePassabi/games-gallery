@@ -224,7 +224,7 @@ main { padding-block: 2rem 5rem; }
 
 .toolbar-fields {
   display: grid;
-  grid-template-columns: minmax(260px, 1fr) minmax(285px, 320px) 135px auto;
+  grid-template-columns: minmax(260px, 1fr) minmax(285px, 320px) max-content max-content;
   width: min(100%, 1120px);
   justify-content: center;
   gap: .75rem;
