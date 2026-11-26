@@ -195,5 +195,24 @@
         "title": "PRAGMATA - 03 - Finale"
       }
     ]
+  },
+  {
+    "id": "23",
+    "name": "Shadow of the Colossus",
+    "hours": 9,
+    "status": "completed",
+    "platform": "Desktop_PC",
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "kthNaPshMY4",
+        "title": "Shadow of the Colossus (PC) - The third"
+      },
+      {
+        "provider": "youtube",
+        "id": "juWHgp-D6fo",
+        "title": "Shadow of the Colossus (PC) - The fourteenth"
+      }
+    ]
   }
 ]
